@@ -15,6 +15,8 @@ protocol ObjectDHDeclarable: AnyObject {
     /// - Parameter then: A then `self` as the argument.
     /// - Returns: Simply returns the instance after called the `then`.
     @discardableResult func declaredWith(_ then: (_ instance: T) -> Void) -> T
+    
+    @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: T) -> Void) -> T
 
     /// Provides a then to configure instance inline based on a boolean test
     /// - Parameter then: A then `self` as the argument if the boolean test is true
@@ -55,7 +57,8 @@ protocol DHDeclarable {
     /// - Parameter then: A then with a mutable copy of `self` as the argument.
     /// - Returns: Simply returns the mutated copy of the instance after called the `then`.
     @discardableResult func declaredWith(_ then: (_ instance: inout T) -> Void) -> T
-    @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: T) -> Void, otherwise: ((_ instance: T) -> Void)?) -> T
+    @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void) -> T
+    @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void, otherwise: ((_ instance: inout T) -> Void)?) -> T
 }
 
 extension DHDeclarable {
@@ -65,12 +68,11 @@ extension DHDeclarable {
         return copy
     }
 
-    @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: inout Self) -> Void) -> Self {
-        return self.declaredIf(value, then, otherwise: nil)
+    @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void) -> T {
+        return self.declaredIf(&copy, value, then, otherwise: nil)
     }
-
-    @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: inout Self) -> Void, otherwise: ((_ instance: inout Self) -> Void)?) -> Self {
-        var copy = self
+    
+    @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void, otherwise: ((_ instance: inout T) -> Void)?) -> T {
         if value {
             then(&copy)
             return copy

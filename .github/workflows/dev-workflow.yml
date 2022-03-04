@@ -12,13 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
-      run: xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable'
-    - name: Gather code coverage
-      run: xcrun llvm-cov export -format="lcov" .build/debug/DHDeclarablePackageTests.xctest/Contents/MacOS/DHDeclarablePackageTests -instr-profile .build/debug/codecov/default.profdata > coverage_report.lcov
-
+      run: xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable' -enableCodeCoverage YES
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage_report.lcov
-        verbose: true

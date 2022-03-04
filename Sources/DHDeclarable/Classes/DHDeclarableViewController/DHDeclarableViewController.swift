@@ -7,17 +7,17 @@ open class DHDeclarableViewController: UIViewController, DHDeclarableViewControl
     // MARK: - Properties
     public let viewTag = Int.random(in: Int.min ... Int.max)
 
-    public var verticalPadding: CGFloat { 0 }
-    public var horizontalPadding: CGFloat { 0 }
+    open var verticalPadding: CGFloat { 0 }
+    open var horizontalPadding: CGFloat { 0 }
 
-    public var body: UIView
-    public var titled: String? { nil }
+    open var body: UIView
+    open var titled: String? { nil }
 
-    public var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
+    open var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
 
     /// Override this property to use a custom background color
     /// use this sparingly, as we would like to move towards dark mode
-    public var backgroundColor: UIColor? { nil }
+    open var backgroundColor: UIColor? { nil }
 
     /// Given the overridable background color, determine
     /// what it should be (default to system background)

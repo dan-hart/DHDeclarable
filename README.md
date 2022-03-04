@@ -8,7 +8,7 @@
  
 ```
 ## DHDeclarable
-[![Swift](https://github.com/dan-hart/DHDeclarable/actions/workflows/swift.yml/badge.svg)](https://github.com/dan-hart/DHDeclarable/actions/workflows/swift.yml)
+[![codecov](https://codecov.io/gh/dan-hart/DHDeclarable/branch/main/graph/badge.svg?token=X0G7HAZ7S4)](https://codecov.io/gh/dan-hart/DHDeclarable)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
 ### Can't drop support for iOS 12 in your app and tired of Storyboards?

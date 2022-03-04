@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
+    /// Access the layer's corner radius with this helper, also properely set `masksToBounds`
     var cornerRadius: CGFloat {
         get {
             layer.cornerRadius
@@ -19,6 +20,9 @@ extension UIView {
         }
     }
     
+    /// Set the corner radius of this view
+    /// - Parameter radius: how much to round the corner
+    /// - Returns: this view
     @discardableResult func rounded(by radius: CGFloat) -> Self {
         declaredWith { view in
             view.cornerRadius = radius

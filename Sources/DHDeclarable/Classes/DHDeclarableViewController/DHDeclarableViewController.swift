@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-public class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
+open class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
     // MARK: - Properties
     public let viewTag = Int.random(in: Int.min ... Int.max)
 
@@ -36,7 +36,7 @@ public class DHDeclarableViewController: UIViewController, DHDeclarableViewContr
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

@@ -39,13 +39,13 @@ class DHDeclarableViewControllerTests: XCTestCase {
         XCTAssertNil(viewController.titled)
     }
     
-    private class TestViewController: DHDeclarableViewController {
-        override var titled: String? { "Test" }
+    private class TestPinViewController: DHDeclarableViewController {
+        override var titled: String? { "Test Pin" }
         
         override var body: UIView {
             get {
                 let label = UILabel()
-                label.text = "Test Label"
+                label.text = "Test Pinned Label"
                 label.tag = viewTag
                 return label
             }
@@ -53,10 +53,32 @@ class DHDeclarableViewControllerTests: XCTestCase {
         }
     }
     
-    func testReloadView() {
-        let viewController = TestViewController()
+    func testPinReloadView() {
+        let viewController = TestPinViewController()
         viewController.reloadView()
-        XCTAssertEqual(viewController.title, "Test")
-        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Label") 
+        XCTAssertEqual(viewController.title, "Test Pin")
+        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Pinned Label")
+    }
+    
+    private class TestCenterViewController: DHDeclarableViewController {
+        override var titled: String? { "Test Center" }
+        override var renderingMode: DHDeclarableViewControllerContentRenderingMode { .center }
+        
+        override var body: UIView {
+            get {
+                let label = UILabel()
+                label.text = "Test Centered Label"
+                label.tag = viewTag
+                return label
+            }
+            set { super.body = newValue }
+        }
+    }
+    
+    func testCenterReloadView() {
+        let viewController = TestCenterViewController()
+        viewController.reloadView()
+        XCTAssertEqual(viewController.title, "Test Center")
+        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Centered Label")
     }
 }

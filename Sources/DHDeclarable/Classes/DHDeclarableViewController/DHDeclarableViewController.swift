@@ -30,7 +30,7 @@ open class DHDeclarableViewController: UIViewController, DHDeclarableViewControl
     }
 
     // MARK: - Initialization
-    init() {
+    public init() {
         body = UIView()
         super.init(nibName: nil, bundle: nil)
     }

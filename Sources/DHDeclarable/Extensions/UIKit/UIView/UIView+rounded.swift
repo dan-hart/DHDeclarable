@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Access the layer's corner radius with this helper, also properely set `masksToBounds`
     var cornerRadius: CGFloat {
         get {

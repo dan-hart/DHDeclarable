@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Put this view in the center of a containing view
     /// - Parameters:
     ///   - to: the containing view, make sure this view is a subview

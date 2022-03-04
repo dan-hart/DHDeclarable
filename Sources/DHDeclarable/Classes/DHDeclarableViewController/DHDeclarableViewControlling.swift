@@ -3,9 +3,8 @@
 import Foundation
 import UIKit
 
-protocol DHDeclarableViewControlling {
+public protocol DHDeclarableViewControlling {
     var body: UIView { get set }
 
-    @discardableResult
-    func reloadView() -> UIView
+    @discardableResult func reloadView() -> UIView
 }

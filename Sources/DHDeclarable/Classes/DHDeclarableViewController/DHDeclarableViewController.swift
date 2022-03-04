@@ -3,21 +3,21 @@
 import Foundation
 import UIKit
 
-class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
+public class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
     // MARK: - Properties
-    let viewTag = Int.random(in: Int.min ... Int.max)
+    public let viewTag = Int.random(in: Int.min ... Int.max)
 
-    var verticalPadding: CGFloat { 0 }
-    var horizontalPadding: CGFloat { 0 }
+    public var verticalPadding: CGFloat { 0 }
+    public var horizontalPadding: CGFloat { 0 }
 
-    var body: UIView
-    var titled: String? { nil }
+    public var body: UIView
+    public var titled: String? { nil }
 
-    var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
+    public var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
 
     /// Override this property to use a custom background color
     /// use this sparingly, as we would like to move towards dark mode
-    var backgroundColor: UIColor? { nil }
+    public var backgroundColor: UIColor? { nil }
 
     /// Given the overridable background color, determine
     /// what it should be (default to system background)
@@ -41,7 +41,7 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
     }
 
     // MARK: - Methods
-    override func loadView() {
+    public override func loadView() {
         // Purposefully not calling super
         // when programmatically creating this view
         // super.loadView()
@@ -54,7 +54,7 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
         reloadView()
     }
 
-    @discardableResult func reloadView() -> UIView {
+    @discardableResult public func reloadView() -> UIView {
         let bodyView = body
         bodyView.backgroundColor = background
         // If you get this error set `.tag` of your top-level view to `viewTag`
@@ -79,7 +79,7 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
     }
 
     // MARK: - Lifecycle
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         reloadView()

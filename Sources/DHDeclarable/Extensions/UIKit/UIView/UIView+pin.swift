@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Use constraints to pin this to a superview
     /// - Parameter superView: .
     func pin(to superView: UIView) {

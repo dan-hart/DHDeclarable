@@ -1,6 +1,6 @@
 //
 //  DHDeclarable+UIStackViewTests.swift
-//  
+//  DHDeclarable
 //
 //  Created by Dan Hart on 3/4/22.
 //

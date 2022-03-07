@@ -24,3 +24,9 @@ open class DHDView: UIView {
         }
     }
 }
+
+extension DHDView: DHDHierarchyDescribable {
+    public var hierarchyDescription: String {
+        "\(DHDView.self)"
+    }
+}

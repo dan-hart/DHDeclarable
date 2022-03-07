@@ -28,7 +28,7 @@ public extension UIView {
         ])
     }
     
-    /// Put this view in a UIHStack with a separator before and after
+    /// Put this view in a UIHStack with a spacer before and after
     var centerHorizontally: DHDHStack {
         DHDHStack(distribution: .equalCentering).add(arrangedSubviews: [
             DHDView.spacer,

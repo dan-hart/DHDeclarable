@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
-    var asDHDViewController: DHDViewController? {
-        self as? DHDViewController
-    }
+public extension UIViewController {
+//    var asDHDViewController: DHDViewController? {
+//        self as? DHDViewController
+//    }
 }

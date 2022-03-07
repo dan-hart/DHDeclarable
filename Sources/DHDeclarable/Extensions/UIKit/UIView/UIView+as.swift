@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 extension UIView {
-    var asDHDView: DHDView? {
-        self as? DHDView
-    }
-    
     var asLabel: DHDLabel? {
         self as? DHDLabel
     }
     
     var asStack: DHDStack? {
         self as? DHDStack
+    }
+    
+    var asScrollView: DHDScrollView? {
+        self as? DHDScrollView
     }
 }

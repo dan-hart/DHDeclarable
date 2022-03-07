@@ -12,7 +12,7 @@ public extension DHDView {
     static func divider(_ color: UIColor) -> DHDView {
         DHDView().declaredWith { view in
             view.addDivider(at: .top, color: color)
-            view.accessibilityIdentifier = DHDIdentifiers.divider
+            view.accessibilityIdentifier = DHDIdentifier.divider
         }
     }
 }

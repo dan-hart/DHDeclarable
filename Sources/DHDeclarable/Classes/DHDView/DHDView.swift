@@ -13,14 +13,14 @@ open class DHDView: UIView {
         DHDView().declaredWith { view in
             view.setContentHuggingPriority(.required, for: .horizontal)
             view.setContentHuggingPriority(.required, for: .vertical)
-            view.accessibilityIdentifier = DHDIdentifiers.spacer
+            view.accessibilityIdentifier = DHDIdentifier.spacer
         }
     }
     
     public static var divider: DHDView {
         DHDView().declaredWith { view in
             view.addDivider(at: .top, color: .gray)
-            view.accessibilityIdentifier = DHDIdentifiers.divider
+            view.accessibilityIdentifier = DHDIdentifier.divider
         }
     }
 }

@@ -12,14 +12,14 @@ public extension DHDView {
     @discardableResult static func spacer(vertical height: CGFloat) -> DHDView {
         DHDView().declaredWith { view in
             view.heightAnchor.constraint(equalToConstant: height).isActive = true
-            view.accessibilityIdentifier = DHDIdentifiers.spacer
+            view.accessibilityIdentifier = DHDIdentifier.spacer
         }
     }
 
     @discardableResult static func spacer(horizontal width: CGFloat) -> DHDView {
         DHDView().declaredWith { view in
             view.widthAnchor.constraint(equalToConstant: width).isActive = true
-            view.accessibilityIdentifier = DHDIdentifiers.spacer
+            view.accessibilityIdentifier = DHDIdentifier.spacer
         }
     }
 }

@@ -56,4 +56,4 @@ return UIStackView().declaredWith {​​​​​​​​​​​​​​​
 * When using `DHDeclarable` with `UIKit` objects, all code can be converted to traditional programatic code, it does not seek to replace `UIKit` in any way. It builds upon it.
 * DHDeclarable is more of a design principle, extension of `UIKit`, and at it's core it is one function: `declaredWith`
 
-### Continue learning about `DHDeclarable` in the next article: [Building on the Basics](Building-on-the-Basics-in-DHDeclarable.md)
+### Continue learning about `DHDeclarable` in the next article: [Building on the Basics](Building-on-the-Basics-in-DHDeclarable.md), or view the [map](map.md).

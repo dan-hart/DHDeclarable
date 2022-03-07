@@ -39,4 +39,4 @@ StackView (0) [
     * This can be useful to break down how views are being added. Note that this method provides indices that can be helpful when writing tests
     * **Note** that as of writing this article this method can only be used on a `UIStackView`, so if a view is not added to a stack view, it will not be shown in the debug output
     
-### Continue learning about `DHDeclarable` in the next article: [Examples](DHDeclarable-Examples.md)
+### Continue learning about `DHDeclarable` in the next article: [Examples](DHDeclarable-Examples.md), or view the [map](map.md).

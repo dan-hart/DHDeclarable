@@ -42,4 +42,4 @@ UIStackView().declaredWith {​​​​​​​​​​​​​​​​​
 
 ## Tip: Stack Views in DHDeclarable are a great alternative to using complicated Auto-Layout constraints
 
-### Continue learning about `DHDeclarable` in the next article: [DHDeclarable Best Practices](DHDeclarable-Best-Practices.md)
+### Continue learning about `DHDeclarable` in the next article: [DHDeclarable Best Practices](DHDeclarable-Best-Practices.md), or view the [map](map.md).

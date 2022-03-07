@@ -35,4 +35,4 @@
 * **If all else fails: use vanilla UIKit syntax**
     * If all else fails, all DHDeclarable code can be re-written using boilerplate UIKit code or even storyboards/nibs.
 
-### Continue learning about `DHDeclarable` in the next article: [Debugging Issues](Debugging-DHDeclarable-Issues.md)
+### Continue learning about `DHDeclarable` in the next article: [Debugging Issues](Debugging-DHDeclarable-Issues.md), or view the [map](map.md).

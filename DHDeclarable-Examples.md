@@ -1,4 +1,4 @@
-### See the  other [DHDeclarable](index.md) documentation.
+### See the other [DHDeclarable](map.md) documentation.
 
 Hello, World:
 ```

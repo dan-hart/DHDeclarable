@@ -10,7 +10,7 @@ import UIKit
 
 /// Connivence object for `UILabel`
 open class DHDLabel: UILabel {
-    convenience init(font: UIFont?,
+    public convenience init(font: UIFont?,
                      textColor: UIColor?,
                      alignment: NSTextAlignment?,
                      text: String?,
@@ -20,6 +20,8 @@ open class DHDLabel: UILabel {
 
         if let font = font {
             self.font = font
+        } else {
+            self.font = UIFont.preferredFont(forTextStyle: .body)
         }
         if let textColor = textColor {
             self.textColor = textColor
@@ -34,8 +36,8 @@ open class DHDLabel: UILabel {
         self.adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory ?? false
     }
 
-    convenience init(font: UIFont? = nil,
-                     _ text: String? = nil) {
+    public convenience init(font: UIFont? = UIFont.preferredFont(forTextStyle: .body),
+                     _ text: String?) {
         self.init(font: font,
                   textColor: nil,
                   alignment: .left,
@@ -44,8 +46,8 @@ open class DHDLabel: UILabel {
                   adjustsFontForContentSizeCategory: true)
     }
 
-    convenience init(_ text: String? = nil) {
-        self.init(font: nil,
+    public convenience init(_ text: String?) {
+        self.init(font: UIFont.preferredFont(forTextStyle: .body),
                   textColor: nil,
                   alignment: .left,
                   text: text,

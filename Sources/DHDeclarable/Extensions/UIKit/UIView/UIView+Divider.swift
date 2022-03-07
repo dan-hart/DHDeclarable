@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 public extension UIView {
-    enum DividerPosition {
+    enum DHDDividerPosition: CaseIterable {
         case top
         case bottom
         case left
         case right
     }
 
-    @discardableResult func addDivider(at position: DividerPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale, insets: UIEdgeInsets = .zero) -> UIView {
+    @discardableResult func addDivider(at position: DHDDividerPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale, insets: UIEdgeInsets = .zero) -> UIView {
         let view = UIView()
         view.backgroundColor = color
         view.translatesAutoresizingMaskIntoConstraints = false

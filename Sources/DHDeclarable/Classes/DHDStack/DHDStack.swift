@@ -19,6 +19,11 @@ open class DHDStack: UIStackView {
 
         setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
     }
+    
+    public convenience init(_ byAddingArrangedSubviews: @escaping () -> [UIView?]) {
+        self.init()
+        add(arrangedSubviews: byAddingArrangedSubviews())
+    }
 
     @available(*, unavailable)
     public required init(coder: NSCoder) {

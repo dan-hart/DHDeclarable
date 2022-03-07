@@ -24,6 +24,14 @@ open class DHDScrollView: UIView {
     public required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    /// Create this view with a predetermined array of views
+    /// - Parameters:
+    ///   - superView: the superview to render this view in
+    public convenience init(fromSuper superView: UIView, _ byAddingArrangedSubviews: @escaping () -> [UIView?]) {
+        self.init(fromSuper: superView)
+        stack.add(arrangedSubviews: byAddingArrangedSubviews())
+    }
 
     /// Create this view with a predetermined array of views
     /// - Parameters:

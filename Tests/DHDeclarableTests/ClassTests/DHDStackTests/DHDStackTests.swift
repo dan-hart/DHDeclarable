@@ -19,6 +19,21 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(stack.tag, 0)
     }
     
+    func testDHDStackConvenienceInit() {
+        let stack = DHDStack {[
+            DHDLabel("1"),
+            DHDLabel("2"),
+            nil,
+            DHDLabel("3"),
+        ]}
+        XCTAssertEqual(stack.arrangedSubviews.count, 3)
+        XCTAssertEqual(stack.axis, .horizontal)
+        XCTAssertEqual(stack.distribution, .fill)
+        XCTAssertEqual(stack.spacing, 0)
+        XCTAssertEqual(stack.alignment, .fill)
+        XCTAssertEqual(stack.tag, 0)
+    }
+    
     func testDHDStackSetup() {
         let stack = DHDStack()
         stack.setup(distribution: .equalCentering, spacing: 2, alignment: .leading, tag: 2)

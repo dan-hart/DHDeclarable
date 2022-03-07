@@ -23,6 +23,18 @@ class DHDScrollViewTests: XCTestCase {
         XCTAssertEqual(scrollView.stack.arrangedSubviews.count, 3)
     }
     
+    func testCompletionConvenienceInit() {
+        let viewController = UIViewController()
+        let scrollView = DHDScrollView(fromSuper: viewController.view) {[
+            DHDLabel("1"),
+            DHDLabel("2"),
+            nil,
+            DHDLabel("3"),
+        ]}
+        XCTAssertNotNil(scrollView)
+        XCTAssertEqual(scrollView.stack.arrangedSubviews.count, 3)
+    }
+    
     private class TestViewController: DHDViewController {
         override var titled: String? { "Test" }
         

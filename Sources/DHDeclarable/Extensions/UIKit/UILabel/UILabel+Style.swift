@@ -12,7 +12,7 @@ extension UILabel {
     // MARK: - Properties
     
     /// Set `adjustsFontForContentSizeCategory` to true
-    var adjustableFontSize: UILabel {
+    public var adjustableFontSize: UILabel {
         declaredWith { label in
             label.adjustsFontForContentSizeCategory = true
         }
@@ -21,21 +21,21 @@ extension UILabel {
     // MARK: - Styling
     
     /// Set text alignment to right
-    var alignedRight: UILabel {
+    public var alignedRight: UILabel {
         declaredWith { label in
             label.textAlignment = .right
         }
     }
 
     /// Set text alignment to left
-    var alignedLeft: UILabel {
+    public var alignedLeft: UILabel {
         declaredWith { label in
             label.textAlignment = .left
         }
     }
 
     /// set `numberOfLines` to 0
-    var multiline: UILabel {
+    public var multiline: UILabel {
         declaredWith { label in
             label.numberOfLines = 0
         }
@@ -44,28 +44,28 @@ extension UILabel {
     // MARK: - Methods
     
     /// set the font of this label
-    @discardableResult func font(_ font: UIFont) -> Self {
+    @discardableResult public func font(_ font: UIFont) -> Self {
         declaredWith { label in
             label.font = font
         }
     }
 
     /// set the text color of this label
-    @discardableResult func textColor(_ color: UIColor) -> Self {
+    @discardableResult public func textColor(_ color: UIColor) -> Self {
         declaredWith { label in
             label.textColor = color
         }
     }
 
     /// set the text alignment of this label
-    @discardableResult func alignment(_ alignment: NSTextAlignment) -> Self {
+    @discardableResult public func alignment(_ alignment: NSTextAlignment) -> Self {
         declaredWith { label in
             label.textAlignment = alignment
         }
     }
 
     /// set the line spacing of this label
-    @discardableResult func lineSpacing(_ lineSpacing: CGFloat) -> Self {
+    @discardableResult public func lineSpacing(_ lineSpacing: CGFloat) -> Self {
         declaredWith { label in
             guard let textString = text else { return }
 
@@ -84,7 +84,7 @@ extension UILabel {
     }
 
     /// set the text property of this label
-    @discardableResult func declaredWith(text: String?) -> Self {
+    @discardableResult public func declaredWith(text: String?) -> Self {
         declaredWith { label in
             label.text = text
         }

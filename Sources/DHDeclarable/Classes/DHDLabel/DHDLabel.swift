@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Connivence object for `UILabel`
-class DHDLabel: UILabel {
+open class DHDLabel: UILabel {
     convenience init(font: UIFont?,
                      textColor: UIColor?,
                      alignment: NSTextAlignment?,

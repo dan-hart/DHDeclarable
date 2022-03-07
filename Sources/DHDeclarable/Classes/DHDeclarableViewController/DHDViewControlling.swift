@@ -1,9 +1,9 @@
-// DHDeclarableViewControlling.swift
+// DHDViewControlling.swift
 
 import Foundation
 import UIKit
 
-public protocol DHDeclarableViewControlling {
+public protocol DHDViewControlling {
     var body: UIView { get set }
 
     @discardableResult func reloadView() -> UIView

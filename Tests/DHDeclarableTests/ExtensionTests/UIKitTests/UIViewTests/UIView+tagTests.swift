@@ -10,7 +10,7 @@ import XCTest
 
 class UIView_tagTests: XCTestCase {
     func testTag() {
-        let viewWithTag = UIView().tag(42)
+        let viewWithTag = UIView().tagged(42)
         XCTAssertEqual(viewWithTag.tag, 42)
     }
 }

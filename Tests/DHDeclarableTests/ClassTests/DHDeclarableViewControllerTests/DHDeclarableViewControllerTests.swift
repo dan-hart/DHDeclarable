@@ -12,34 +12,34 @@ import XCTest
 class DHDeclarableViewControllerTests: XCTestCase {
     // MARK: - Initial Values
     func testViewTag() {
-        let viewController = DHDeclarableViewController()
+        let viewController = DHDViewController()
         let viewTag = viewController.viewTag
         XCTAssertTrue(viewTag >= Int.min)
         XCTAssertTrue(viewTag <= Int.max)
     }
     
     func testInitialPadding() {
-        let viewController = DHDeclarableViewController()
+        let viewController = DHDViewController()
         XCTAssertEqual(viewController.horizontalPadding, 0)
         XCTAssertEqual(viewController.verticalPadding, 0)
     }
     
     func testInitialRenderingMode() {
-        let viewController = DHDeclarableViewController()
+        let viewController = DHDViewController()
         XCTAssertEqual(viewController.renderingMode, .pin)
     }
     
     func testInitialBackgroundColor() {
-        let viewController = DHDeclarableViewController()
+        let viewController = DHDViewController()
         XCTAssertNil(viewController.backgroundColor)
     }
     
     func testInitialTitle() {
-        let viewController = DHDeclarableViewController()
+        let viewController = DHDViewController()
         XCTAssertNil(viewController.titled)
     }
     
-    private class TestPinViewController: DHDeclarableViewController {
+    private class TestPinViewController: DHDViewController {
         override var titled: String? { "Test Pin" }
         
         override var body: UIView {
@@ -60,9 +60,9 @@ class DHDeclarableViewControllerTests: XCTestCase {
         XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Pinned Label")
     }
     
-    private class TestCenterViewController: DHDeclarableViewController {
+    private class TestCenterViewController: DHDViewController {
         override var titled: String? { "Test Center" }
-        override var renderingMode: DHDeclarableViewControllerContentRenderingMode { .center }
+        override var renderingMode: DHDViewControllerContentRenderingMode { .center }
         
         override var body: UIView {
             get {

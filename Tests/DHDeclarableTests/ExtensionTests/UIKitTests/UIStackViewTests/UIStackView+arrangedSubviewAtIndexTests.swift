@@ -11,7 +11,7 @@ import XCTest
 class UIStackView_arrangedSubviewAtIndexTests: XCTestCase {
     func testSubviewExists() {
         let stack = UIStackView().add(arrangedSubviews: [
-            UIView().tag(42)
+            UIView().tagged(42)
         ])
         let subviewByIndex = stack.arrangedSubview(at: 0)
         XCTAssertNotNil(subviewByIndex)

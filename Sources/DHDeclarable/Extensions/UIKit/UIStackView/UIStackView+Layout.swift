@@ -12,7 +12,7 @@ extension UIStackView {
     // MARK: - Properties
     
     /// Set this Stack View's `isLayoutMarginsRelativeArrangement` to true
-    var layoutMarginRelative: Self {
+    public var layoutMarginRelative: Self {
         declaredWith { stack in
             stack.isLayoutMarginsRelativeArrangement = true
         }
@@ -23,7 +23,7 @@ extension UIStackView {
     /// Set the axis of this stack view to `horizontal` and set the spacing
     /// - Parameter spacing: number to describe the spacing between arranged subviews
     /// - Returns: this stack view
-    @discardableResult func horizontal(spacing: CGFloat = 0) -> Self {
+    @discardableResult public func horizontal(spacing: CGFloat = 0) -> Self {
         declaredWith { horizontalStackView in
             horizontalStackView.axis = .horizontal
             horizontalStackView.spacing = spacing
@@ -33,7 +33,7 @@ extension UIStackView {
     /// Set the axis of this stack view to `vertical` and set the spacing
     /// - Parameter spacing: number to describe the spacing between arranged subviews
     /// - Returns: this stack view
-    @discardableResult func vertical(spacing: CGFloat = 0) -> Self {
+    @discardableResult public func vertical(spacing: CGFloat = 0) -> Self {
         declaredWith { verticalStackView in
             verticalStackView.axis = .vertical
             verticalStackView.spacing = spacing
@@ -43,7 +43,7 @@ extension UIStackView {
     /// Set the spacing property of this stack view
     /// - Parameter amount: the number to describe the spacing between arranged subviews
     /// - Returns: this stack view
-    @discardableResult func spacing(_ amount: CGFloat) -> Self {
+    @discardableResult public func spacing(_ amount: CGFloat) -> Self {
         declaredWith { stack in
             stack.spacing = amount
         }
@@ -52,7 +52,7 @@ extension UIStackView {
     /// Set the distribution of this stack view
     /// - Parameter style: the distribution style
     /// - Returns: this stack view
-    @discardableResult func distribution(_ style: Distribution) -> Self {
+    @discardableResult public func distribution(_ style: Distribution) -> Self {
         declaredWith { stack in
             stack.distribution = style
         }
@@ -61,7 +61,7 @@ extension UIStackView {
     /// Add an array of optional views to this stack view as arranged subviews, skipping nil views
     /// - Parameter arrangedSubviews: the views to add as arranged subviews
     /// - Returns: this stack view
-    @discardableResult func add(arrangedSubviews: [UIView?]) -> Self {
+    @discardableResult public func add(arrangedSubviews: [UIView?]) -> Self {
         declaredWith { stack in
             for subview in arrangedSubviews {
                 guard let view = subview else { continue }
@@ -70,7 +70,7 @@ extension UIStackView {
         }
     }
 
-    @discardableResult func add(if condition: Bool, arrangedSubviews: [UIView?]) -> Self {
+    @discardableResult public func add(if condition: Bool, arrangedSubviews: [UIView?]) -> Self {
         if !condition { return self }
 
         return add(arrangedSubviews: arrangedSubviews)

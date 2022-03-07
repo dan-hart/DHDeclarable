@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension UIStackView {
-    /// Retrieve an arraged subview at the specified index
+    /// Retrieve an arranged subview at the specified index
     /// - Parameter index: the 0-based index of the arranged subview
     /// - Returns: the optional view at the specified index.
-    func arrangedSubview(at index: Int) -> UIView? {
+    public func arrangedSubview(at index: Int) -> UIView? {
         arrangedSubviews[optional: index]
     }
 }

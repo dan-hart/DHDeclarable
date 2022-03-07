@@ -1,9 +1,9 @@
-// DHDeclarableViewController.swift
+// DHDViewController.swift
 
 import Foundation
 import UIKit
 
-open class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
+open class DHDViewController: UIViewController, DHDViewControlling {
     // MARK: - Properties
     public let viewTag = Int.random(in: Int.min ... Int.max)
 
@@ -13,7 +13,7 @@ open class DHDeclarableViewController: UIViewController, DHDeclarableViewControl
     open var body: UIView
     open var titled: String? { nil }
 
-    open var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
+    open var renderingMode: DHDViewControllerContentRenderingMode { .pin }
 
     /// Override this property to use a custom background color
     /// use this sparingly, as we would like to move towards dark mode
@@ -58,7 +58,7 @@ open class DHDeclarableViewController: UIViewController, DHDeclarableViewControl
         let bodyView = body
         bodyView.backgroundColor = background
         // If you get this error set `.tag` of your top-level view to `viewTag`
-        precondition(body.tag == viewTag, "A \(DHDeclarableViewController.self)'s body must be tagged in order to be reloaded properly.")
+        precondition(body.tag == viewTag, "A \(DHDViewController.self)'s body must be tagged in order to be reloaded properly.")
         // Remove any existing views
         if let viewWithTag = view.viewWithTag(viewTag) {
             viewWithTag.removeFromSuperview()

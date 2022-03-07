@@ -9,23 +9,23 @@ import Foundation
 import UIKit
 
 /// A DHDeclarable wrapper for `UIStackView`
-class DHDStack: UIStackView {
-    override init(frame: CGRect) {
+open class DHDStack: UIStackView {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    convenience init(distribution: Distribution = .fill, spacing: CGFloat = 0, alignment: Alignment? = nil, tag: Int? = nil) {
+    public convenience init(distribution: Distribution = .fill, spacing: CGFloat = 0, alignment: Alignment? = nil, tag: Int? = nil) {
         self.init()
 
         setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
     }
 
     @available(*, unavailable)
-    required init(coder: NSCoder) {
+    public required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup(distribution: Distribution = .fill, spacing: CGFloat = 0, alignment: Alignment? = nil, tag: Int? = nil) {
+    public func setup(distribution: Distribution = .fill, spacing: CGFloat = 0, alignment: Alignment? = nil, tag: Int? = nil) {
         self.distribution = distribution
         self.spacing = spacing
         if let unwrappedAlignment = alignment {

@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class DHDHStack: DHDStack {
-    override func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
+open class DHDHStack: DHDStack {
+    public override func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
         super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
 
         axis = .horizontal

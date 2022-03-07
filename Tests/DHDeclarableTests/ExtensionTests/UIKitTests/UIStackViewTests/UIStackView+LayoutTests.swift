@@ -38,9 +38,9 @@ class UIStackView_LayoutTests: XCTestCase {
     
     func testAddArrangedSubviews() {
         let stack = UIStackView().add(arrangedSubviews: [
-            UIView().tag(45789),
+            UIView().tagged(45789),
             nil,
-            UIView().tag(42),
+            UIView().tagged(42),
         ])
         XCTAssertEqual(stack.arrangedSubviews.count, 2)
         XCTAssertEqual(stack.arrangedSubview(at: 0)?.tag, 45789)

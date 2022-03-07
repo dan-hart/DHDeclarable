@@ -5,10 +5,10 @@
 * The protocol implements it for you:
 
 ```
-     @discardableResult func declaredWith(_ then: (_ instance: Self) -> Void) -> Self {
-         then(self)
-         return self
-     }
+@discardableResult func declaredWith(_ then: (_ instance: Self) -> Void) -> Self {
+    then(self)
+    return self
+}
 ```
 
 * This function does two things: 1) return self and 2) call a closure, with self as the parameter.
@@ -17,26 +17,26 @@
 
 ### Not using `DHDeclarable`
 ```
-     let stackView = UIStackView()
-     stackView.axis = .vertical
-     stackView.distribution = .fill
-     stackView.spacing = 10
-     stackView.addArrangedSubview(...)
-     stackView.addArrangedSubview(...)
-     stackView.addArrangedSubview(...)
-     return stackView
+let stackView = UIStackView()
+stackView.axis = .vertical
+stackView.distribution = .fill
+stackView.spacing = 10
+stackView.addArrangedSubview(...)
+stackView.addArrangedSubview(...)
+stackView.addArrangedSubview(...)
+return stackView
 ```
 
 ### Using `DHDeclarable`
 ```
-     return UIStackView().declaredWith {​​​​​​​​​​​​​​​​​​​​​​​​​ stack in
-         stack.axis = .vertical
-         stack.distribution = .fill
-         stack.spacing = 10
-         stack.addArrangedSubview(...)
-         stack.addArrangedSubview(...)
-         stack.addArrangedSubview(...)
-     }
+return UIStackView().declaredWith {​​​​​​​​​​​​​​​​​​​​​​​​​ stack in
+    stack.axis = .vertical
+    stack.distribution = .fill
+    stack.spacing = 10
+    stack.addArrangedSubview(...)
+    stack.addArrangedSubview(...)
+    stack.addArrangedSubview(...)
+}
 ```
 
 ### Notes:
@@ -56,4 +56,4 @@
 * When using `DHDeclarable` with `UIKit` objects, all code can be converted to traditional programatic code, it does not seek to replace `UIKit` in any way. It builds upon it.
 * DHDeclarable is more of a design principle, extension of `UIKit`, and at it's core it is one function: `declaredWith`
 
-### Continue learning about `DHDeclarable` in the next article: [Building on the Basics]
+### Continue learning about `DHDeclarable` in the next article: [Building on the Basics](Building-on-the-Basics-in-DHDeclarable.md)

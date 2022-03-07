@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+# Introduction to DHDeclarable
+* At its core, DHDeclarable is a protocol and a function
+* Starting with the protocol: `protocol DHDeclarable`
+* The protocol requires that you implement a method: `declaredWith`
+* The protocol implements it for you:
 
-You can use the [editor on GitHub](https://github.com/dan-hart/DHDeclarable/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+     @discardableResult func declaredWith(_ then: (_ instance: Self) -> Void) -> Self {
+         then(self)
+         return self
+     }
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+* This function does two things: 1) return self and 2) call a closure, with self as the parameter.
+* Using this method, it allows you to initialize objects and mutate properties with syntactic sugar.
+* **Note**: `@discardableResult` silences a warning if the return object is not used.
 
-### Jekyll Themes
+### Not using `DHDeclarable`
+```
+     let stackView = UIStackView()
+     stackView.axis = .vertical
+     stackView.distribution = .fill
+     stackView.spacing = 10
+     stackView.addArrangedSubview(...)
+     stackView.addArrangedSubview(...)
+     stackView.addArrangedSubview(...)
+     return stackView
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dan-hart/DHDeclarable/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Using `DHDeclarable`
+```
+     return UIStackView().declaredWith {​​​​​​​​​​​​​​​​​​​​​​​​​ stack in
+         stack.axis = .vertical
+         stack.distribution = .fill
+         stack.spacing = 10
+         stack.addArrangedSubview(...)
+         stack.addArrangedSubview(...)
+         stack.addArrangedSubview(...)
+     }
+```
 
-### Support or Contact
+### Notes:
+* We're using the return value of with and the closure parameter, self, that `declaredWith` provides
+    * The initializer of `UIStackView()` is called first
+    * After the stack view is initialized, `declaredWith` is called
+    * The properties of the stack view are updated
+    * Finally, the stack view with the updated properties is returned.
+* Note that **this is not asynchronous**, the closure is called before the return.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Why use `DHDeclarable`?
+* This allows for more declarative code
+* Accessibility: using hierarchical view code, views can be made to automatically scale and text to resize.
+* Views can be expressed with a hierarchy, or with more clear state properties 
+* This makes writing programatic `UIKit` code a little easier than a traditional "linear" approach.
+* DHDeclarable was designed to help bridge the gap between Storyboards, programatic `UIKit`, and `SwiftUI`
+* When using `DHDeclarable` with `UIKit` objects, all code can be converted to traditional programatic code, it does not seek to replace `UIKit` in any way. It builds upon it.
+* DHDeclarable is more of a design principle, extension of `UIKit`, and at it's core it is one function: `declaredWith`
+
+### Continue learning about `DHDeclarable` in the next article: [Building on the Basics]

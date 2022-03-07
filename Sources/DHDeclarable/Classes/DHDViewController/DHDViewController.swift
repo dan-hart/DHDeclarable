@@ -1,23 +1,23 @@
-// DHDeclarableViewController.swift
+// DHDViewController.swift
 
 import Foundation
 import UIKit
 
-class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling {
+open class DHDViewController: UIViewController, DHDViewControlling {
     // MARK: - Properties
-    let viewTag = Int.random(in: Int.min ... Int.max)
+    public let viewTag = Int.random(in: Int.min ... Int.max)
 
-    var verticalPadding: CGFloat { 0 }
-    var horizontalPadding: CGFloat { 0 }
+    open var verticalPadding: CGFloat { 0 }
+    open var horizontalPadding: CGFloat { 0 }
 
-    var body: UIView
-    var titled: String? { nil }
+    open var body: UIView
+    open var titled: String? { nil }
 
-    var renderingMode: DHDeclarableViewControllerContentRenderingMode { .pin }
+    open var renderingMode: DHDViewControllerContentRenderingMode { .pin }
 
     /// Override this property to use a custom background color
     /// use this sparingly, as we would like to move towards dark mode
-    var backgroundColor: UIColor? { nil }
+    open var backgroundColor: UIColor? { nil }
 
     /// Given the overridable background color, determine
     /// what it should be (default to system background)
@@ -30,18 +30,18 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
     }
 
     // MARK: - Initialization
-    init() {
+    public init() {
         body = UIView()
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Methods
-    override func loadView() {
+    public override func loadView() {
         // Purposefully not calling super
         // when programmatically creating this view
         // super.loadView()
@@ -54,11 +54,11 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
         reloadView()
     }
 
-    @discardableResult func reloadView() -> UIView {
+    @discardableResult public func reloadView() -> UIView {
         let bodyView = body
         bodyView.backgroundColor = background
         // If you get this error set `.tag` of your top-level view to `viewTag`
-        precondition(body.tag == viewTag, "A \(DHDeclarableViewController.self)'s body must be tagged in order to be reloaded properly.")
+        precondition(body.tag == viewTag, "A \(DHDViewController.self)'s body must be tagged in order to be reloaded properly.")
         // Remove any existing views
         if let viewWithTag = view.viewWithTag(viewTag) {
             viewWithTag.removeFromSuperview()
@@ -77,9 +77,29 @@ class DHDeclarableViewController: UIViewController, DHDeclarableViewControlling 
 
         return bodyView
     }
+    
+    // MARK: - Color
+    var systemBackground: UIColor {
+        DHDViewController.systemBackground(from: traitCollection)
+    }
+    
+    /// Sets the the background color to the system background
+    /// for iOS 12 and lower,  manually set to white or black based on light/dark mode.
+    static func systemBackground(from traitCollection: UITraitCollection) -> UIColor {
+        if #available(iOS 13, *) {
+            return .systemBackground
+        } else {
+            // Manually set background with black/white
+            if traitCollection.userInterfaceStyle == .light {
+                return .white
+            } else {
+                return .black
+            }
+        }
+    }
 
     // MARK: - Lifecycle
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         reloadView()

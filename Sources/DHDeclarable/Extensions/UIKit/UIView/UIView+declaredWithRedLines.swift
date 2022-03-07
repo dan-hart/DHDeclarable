@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Add a border, corner radius, and light background color to inspect a view
     var declaredWithRedLines: UIView {
         declaredWith { view in

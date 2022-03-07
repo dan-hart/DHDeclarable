@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - DHDeclarable for Objects
-protocol ObjectDHDeclarable: AnyObject {
+public protocol ObjectDHDeclarable: AnyObject {
     associatedtype T
 
     /// Provides a then to configure instances inline.
@@ -25,7 +25,7 @@ protocol ObjectDHDeclarable: AnyObject {
     @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: T) -> Void, otherwise: ((_ instance: T) -> Void)?) -> T
 }
 
-extension ObjectDHDeclarable {
+public extension ObjectDHDeclarable {
     @discardableResult func declaredWith(_ then: (_ instance: Self) -> Void) -> Self {
         then(self)
         return self
@@ -50,7 +50,7 @@ extension ObjectDHDeclarable {
 extension NSObject: ObjectDHDeclarable { }
 
 // MARK: - DHDeclarable for Values
-protocol DHDeclarable {
+public protocol DHDeclarable {
     associatedtype T
 
     /// Provides a then to configure instances inline
@@ -61,7 +61,7 @@ protocol DHDeclarable {
     @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void, otherwise: ((_ instance: inout T) -> Void)?) -> T
 }
 
-extension DHDeclarable {
+public extension DHDeclarable {
     @discardableResult func declaredWith(_ then: (_ instance: inout Self) -> Void) -> Self {
         var copy = self
         then(&copy)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Put this view in the center of a containing view
     /// - Parameters:
     ///   - to: the containing view, make sure this view is a subview
@@ -25,6 +25,15 @@ extension UIView {
             
             heightAnchor.constraint(lessThanOrEqualToConstant: heightLessThanOrEqualToConstant),
             widthAnchor.constraint(lessThanOrEqualToConstant: widthLessThanOrEqualToConstant),
+        ])
+    }
+    
+    /// Put this view in a UIHStack with a spacer before and after
+    var centerHorizontally: DHDHStack {
+        DHDHStack(distribution: .equalCentering).add(arrangedSubviews: [
+            DHDView.spacer,
+            self,
+            DHDView.spacer,
         ])
     }
 }

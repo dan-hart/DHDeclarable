@@ -81,4 +81,10 @@ class DHDeclarableViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.title, "Test Center")
         XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Centered Label")
     }
+    
+    func testSystemBackground() {
+        let viewController = DHDViewController()
+        let color = viewController.systemBackground
+        XCTAssertNotNil(color)
+    }
 }

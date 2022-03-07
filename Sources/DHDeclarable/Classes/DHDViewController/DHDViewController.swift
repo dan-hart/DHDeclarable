@@ -77,6 +77,26 @@ open class DHDViewController: UIViewController, DHDViewControlling {
 
         return bodyView
     }
+    
+    // MARK: - Color
+    var systemBackground: UIColor {
+        DHDViewController.systemBackground(from: traitCollection)
+    }
+    
+    /// Sets the the background color to the system background
+    /// for iOS 12 and lower,  manually set to white or black based on light/dark mode.
+    static func systemBackground(from traitCollection: UITraitCollection) -> UIColor {
+        if #available(iOS 13, *) {
+            return .systemBackground
+        } else {
+            // Manually set background with black/white
+            if traitCollection.userInterfaceStyle == .light {
+                return .white
+            } else {
+                return .black
+            }
+        }
+    }
 
     // MARK: - Lifecycle
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

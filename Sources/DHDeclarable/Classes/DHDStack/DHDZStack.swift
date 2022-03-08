@@ -9,18 +9,16 @@ import Foundation
 import UIKit
 
 open class DHDZStack: DHDViewComponent {
-    public init(_ views: @escaping () -> [UIView?]) {
+    public convenience init(_ views: @escaping () -> [UIView?]) {
+        self.init()
+        
         for view in views() where view != nil {
             guard let view = view else {
                 continue
             }
 
             self.addSubview(view)
-            view?.pin(to: self)
+            view.pin(to: self)
         }
-    }
-    
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

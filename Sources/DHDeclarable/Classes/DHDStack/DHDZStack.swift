@@ -21,4 +21,8 @@ open class DHDZStack: DHDViewComponent {
             view.pin(to: self)
         }
     }
+    
+    override var asStack: DHDStack? {
+        DHDStack(arrangedSubviews: subviews)
+    }
 }

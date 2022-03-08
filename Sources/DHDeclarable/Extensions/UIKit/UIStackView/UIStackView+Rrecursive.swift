@@ -108,6 +108,10 @@ public extension UIStackView {
                 description += "\t\(stackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
                 continue
             }
+            if let asStackView = arrangedSubview.asStack {
+                description += "\t\(asStackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
+                continue
+            }
             if let scrollable = arrangedSubview as? DHDScrollView {
                 description += "\t\(scrollable.stack.hierarchy(description: "\(DHDScrollView.self)", level: level + 1, stackIndex: index))"
                 continue

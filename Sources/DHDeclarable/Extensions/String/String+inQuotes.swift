@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     /// put this string in quotes
     var inQuotes: String {
         "\"\(self)\""

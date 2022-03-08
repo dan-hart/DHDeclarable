@@ -25,8 +25,8 @@ open class DHDView: UIView {
     }
 }
 
-extension DHDView: DHDHierarchyDescribable {
-    public var hierarchyDescription: String {
+extension DHDView: DHDStringRepresentable {
+    public var stringRepresentation: String {
         if let identifier = accessibilityIdentifier {
             return identifier
         } else {

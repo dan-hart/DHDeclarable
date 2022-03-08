@@ -113,8 +113,8 @@ public extension UIStackView {
                 continue
             }
 
-            if let _ = type(of: arrangedSubview) as? DHDHierarchyDescribable.Type {
-                let stringDescription = (arrangedSubview as? DHDHierarchyDescribable)?.hierarchyDescription ?? ""
+            if let _ = type(of: arrangedSubview) as? DHDStringRepresentable.Type {
+                let stringDescription = (arrangedSubview as? DHDStringRepresentable)?.stringRepresentation ?? ""
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(stringDescription.inQuotes)"
                 continue
             }

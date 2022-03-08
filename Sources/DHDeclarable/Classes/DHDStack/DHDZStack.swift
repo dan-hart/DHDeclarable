@@ -12,6 +12,9 @@ open class DHDZStack: DHDViewComponent {
     public convenience init(renderingMode: DHDViewControllerContentRenderingMode = .pin, _ views: @escaping () -> [UIView?]) {
         self.init()
         
+        widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width).isActive = true
+        heightAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.height).isActive = true
+        
         for view in views() where view != nil {
             guard let view = view else {
                 continue

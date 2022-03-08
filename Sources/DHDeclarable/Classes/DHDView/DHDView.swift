@@ -27,6 +27,10 @@ open class DHDView: UIView {
 
 extension DHDView: DHDHierarchyDescribable {
     public var hierarchyDescription: String {
-        "\(DHDView.self)"
+        if let identifier = accessibilityIdentifier {
+            return identifier
+        } else {
+            return description
+        }
     }
 }

@@ -12,7 +12,7 @@
 [![codecov](https://codecov.io/gh/dan-hart/DHDeclarable/branch/dev/graph/badge.svg?token=X0G7HAZ7S4)](https://codecov.io/gh/dan-hart/DHDeclarable)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
-### Can't drop support for iOS 12 in your app and tired of Storyboards?
+### Tired of Storyboards? Not ready for SwiftUI?
 * `DHDeclarable` adds declarative syntax to `UIKit`
 * No more assigning constraints in Interface Builder
 * One source of truth for your user interface code

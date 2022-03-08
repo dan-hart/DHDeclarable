@@ -12,7 +12,7 @@ import UIKit
 /// Previews are not available in iOS less than 13, sorry folks. Take it up with Apple.
 
 @available(iOS 13, *)
-extension UIView {
+public extension UIView {
     private struct Preview: UIViewRepresentable {
         typealias UIViewType = UIView
         let view: UIView

@@ -31,9 +31,13 @@ class UILabel_StyleTests: XCTestCase {
     }
     
     func testFont() {
-        let systemFont = UIFont.systemFont(ofSize: 18)
-        let label = UILabel().font(systemFont)
-        XCTAssertEqual(label.font, systemFont)
+        let label = UILabel().font(.preferredFont(forTextStyle: .body))
+        XCTAssertEqual(label.font, .preferredFont(forTextStyle: .body))
+    }
+    
+    func testTextStyle() {
+        let label = "Hello".asLabel.textStyle(.title1)
+        XCTAssertEqual(label.font, .preferredFont(forTextStyle: .title1))
     }
     
     func testTextColor() {

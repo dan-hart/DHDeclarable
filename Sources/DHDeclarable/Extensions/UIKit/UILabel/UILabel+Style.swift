@@ -49,6 +49,13 @@ extension UILabel {
             label.font = font
         }
     }
+    
+    /// set the font of this label using text styles
+    @discardableResult public func textStyle(_ style: UIFont.TextStyle) -> Self {
+        declaredWith { label in
+            label.font = .preferredFont(forTextStyle: style)
+        }
+    }
 
     /// set the text color of this label
     @discardableResult public func textColor(_ color: UIColor) -> Self {

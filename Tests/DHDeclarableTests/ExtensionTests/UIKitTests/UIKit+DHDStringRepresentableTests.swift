@@ -8,7 +8,7 @@
 @testable import DHDeclarable
 import XCTest
 
-class UIKit_DHDStringRepresentableTests: XCTestCase {    
+class UIKit_DHDStringRepresentableTests: XCTestCase {
     func testLabelConformance() {
         let label = DHDLabel("Hello")
         XCTAssertEqual(label.stringRepresentation, "Hello")

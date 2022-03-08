@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 open class DHDZStack: DHDViewComponent {
-    public convenience init(_ views: @escaping () -> [UIView?]) {
+    public convenience init(renderingMode: DHDViewControllerContentRenderingMode = .pin, _ views: @escaping () -> [UIView?]) {
         self.init()
         
         for view in views() where view != nil {
@@ -18,7 +18,12 @@ open class DHDZStack: DHDViewComponent {
             }
 
             self.addSubview(view)
-            view.pin(to: self)
+            switch renderingMode {
+            case .pin:
+                view.pin(to: self)
+            case .center:
+                view.center(to: self, heightLessThanOrEqualToConstant: 0, widthLessThanOrEqualToConstant: 0)
+            }
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public extension UIViewController {
-//    var asDHDViewController: DHDViewController? {
-//        self as? DHDViewController
-//    }
+    var inNavigationController: UINavigationController {
+        UINavigationController(rootViewController: self)
+    }
 }

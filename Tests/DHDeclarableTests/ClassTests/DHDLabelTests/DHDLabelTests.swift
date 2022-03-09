@@ -20,7 +20,7 @@ class DHDLabelTests: XCTestCase {
     }
 
     func testFontInit() {
-        let label = DHDLabel(font: nil, "Hello 1")
+        let label = DHDLabel("Hello 1", font: nil)
         let textColor = label.textColor
         XCTAssertEqual(label.font, UIFont.preferredFont(forTextStyle: .body))
         XCTAssertEqual(label.textColor, textColor)

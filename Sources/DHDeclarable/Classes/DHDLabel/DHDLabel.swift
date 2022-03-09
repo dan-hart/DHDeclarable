@@ -38,10 +38,10 @@ open class DHDLabel: UILabel {
 
     /// Create a `DHDLabel` with a font and some text
     /// - Parameters:
-    ///   - font: the `UIFont` of the label
     ///   - text: a string of text
-    public convenience init(font: UIFont? = UIFont.preferredFont(forTextStyle: .body),
-                            _ text: String?) {
+    ///   - font: the `UIFont` of the label
+    public convenience init(_ text: String?,
+                            font: UIFont? = UIFont.preferredFont(forTextStyle: .body)) {
         self.init(font: font,
                   textColor: nil,
                   alignment: .left,

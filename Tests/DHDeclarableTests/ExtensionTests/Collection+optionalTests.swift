@@ -1,6 +1,6 @@
 //
 //  Collection+optionalTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -14,7 +14,7 @@ class Collection_optionalTests: XCTestCase {
         let two = array[optional: 1]
         XCTAssertEqual(two, "Two")
     }
-    
+
     func testOptionalFailure() {
         let array = ["One", "Two", "Three"]
         let four = array[optional: 3]

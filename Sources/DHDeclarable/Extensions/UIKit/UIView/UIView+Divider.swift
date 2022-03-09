@@ -1,6 +1,6 @@
 //
 //  UIView+Divider.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public extension UIView {
+    /// Cases for which side of a view to add the divider to
     enum DHDDividerPosition: CaseIterable {
         case top
         case bottom
@@ -16,6 +17,8 @@ public extension UIView {
         case right
     }
 
+    /// Create a horizontal line at the specified position, color, weight, using the insets
+    /// - Returns: a `UIView` as the divider
     @discardableResult func addDivider(at position: DHDDividerPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale, insets: UIEdgeInsets = .zero) -> UIView {
         let view = UIView()
         view.backgroundColor = color

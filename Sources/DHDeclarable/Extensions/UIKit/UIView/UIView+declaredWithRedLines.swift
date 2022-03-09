@@ -1,6 +1,6 @@
 //
 //  UIView+declaredWithRedLines.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/4/22.
 //
@@ -18,7 +18,7 @@ public extension UIView {
             view.backgroundColor = UIColor.red.withAlphaComponent(0.1)
         }
     }
-    
+
     /// Add a border, corner radius, and light background color to debug a view
     var inspect: UIView {
         declaredWithRedLines

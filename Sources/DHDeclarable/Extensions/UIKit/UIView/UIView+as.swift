@@ -1,6 +1,6 @@
 //
 //  UIView+as.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 extension UIView {
-    var asLabel: DHDLabel? {
+    @objc var asLabel: DHDLabel? {
         self as? DHDLabel
     }
-    
-    var asStack: DHDStack? {
+
+    @objc var asStack: DHDStack? {
         self as? DHDStack
     }
-    
-    var asScrollView: DHDScrollView? {
+
+    @objc var asScrollView: DHDScrollView? {
         self as? DHDScrollView
     }
 }

@@ -1,6 +1,6 @@
 //
 //  UIView+declaredWithRedLinesTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/4/22.
 //
@@ -17,7 +17,7 @@ class UIView_declaredWithRedLinesTests: XCTestCase {
         XCTAssertEqual(view.layer.borderColor, UIColor.red.withAlphaComponent(0.3).cgColor)
         XCTAssertEqual(view.backgroundColor, UIColor.red.withAlphaComponent(0.1))
     }
-    
+
     func testInspect() {
         let view = UIView().inspect
         XCTAssertEqual(view.layer.borderWidth, 1)

@@ -1,6 +1,6 @@
 //
 //  UIStackView+forEach.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -19,8 +19,7 @@ public extension UIStackView {
     /// - Parameters:
     ///   - array: the data source
     ///   - convertToView: how to format each element in the data source to a `UIView`
-    @discardableResult
-    func forEach<T>(_ array: [T], style: DividerStyle = .innerOuter, convertToView: @escaping (T) -> UIView) -> Self {
+    @discardableResult func forEach<T>(_ array: [T], style: DividerStyle = .innerOuter, convertToView: @escaping (T) -> UIView) -> Self {
         forEach(array, style: style) { _, element in
             self.addArrangedSubview(convertToView(element))
         }
@@ -30,12 +29,12 @@ public extension UIStackView {
     /// - Parameters:
     ///   - array: the data source
     ///   - completion: index + element
-    @discardableResult
-    func forEach<T>(_ array: [T], style: DividerStyle = .innerOuter, completion: @escaping (Int, T) -> Void) -> Self {
+    @discardableResult func forEach<T>(_ array: [T], style: DividerStyle = .innerOuter, completion: @escaping (Int, T) -> Void) -> Self {
         switch style {
         case .innerOuter:
             addArrangedSubview(DHDView.divider)
-        case .inner, .none:
+        case .inner,
+             .none:
             break
         }
 

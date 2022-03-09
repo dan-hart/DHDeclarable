@@ -1,6 +1,6 @@
 //
 //  DHDLabel.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -11,11 +11,11 @@ import UIKit
 /// Connivence object for `UILabel`
 open class DHDLabel: UILabel {
     public convenience init(font: UIFont?,
-                     textColor: UIColor?,
-                     alignment: NSTextAlignment?,
-                     text: String?,
-                     lineLimit: Int?,
-                     adjustsFontForContentSizeCategory: Bool?) {
+                            textColor: UIColor?,
+                            alignment: NSTextAlignment?,
+                            text: String?,
+                            lineLimit: Int?,
+                            adjustsFontForContentSizeCategory: Bool?) {
         self.init()
 
         if let font = font {
@@ -36,8 +36,12 @@ open class DHDLabel: UILabel {
         self.adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory ?? false
     }
 
-    public convenience init(font: UIFont? = UIFont.preferredFont(forTextStyle: .body),
-                     _ text: String?) {
+    /// Create a `DHDLabel` with a font and some text
+    /// - Parameters:
+    ///   - text: a string of text
+    ///   - font: the `UIFont` of the label
+    public convenience init(_ text: String?,
+                            font: UIFont? = UIFont.preferredFont(forTextStyle: .body)) {
         self.init(font: font,
                   textColor: nil,
                   alignment: .left,
@@ -46,6 +50,8 @@ open class DHDLabel: UILabel {
                   adjustsFontForContentSizeCategory: true)
     }
 
+    /// Create a `DHDLabel` with some text
+    /// - Parameter text: a string of text
     public convenience init(_ text: String?) {
         self.init(font: UIFont.preferredFont(forTextStyle: .body),
                   textColor: nil,

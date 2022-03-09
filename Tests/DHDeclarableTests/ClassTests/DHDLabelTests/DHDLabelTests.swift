@@ -1,6 +1,6 @@
 //
 //  DHDLabelTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -18,9 +18,9 @@ class DHDLabelTests: XCTestCase {
         XCTAssertEqual(label.numberOfLines, 1)
         XCTAssertEqual(label.adjustsFontForContentSizeCategory, false)
     }
-    
+
     func testFontInit() {
-        let label = DHDLabel(font: nil, "Hello 1")
+        let label = DHDLabel("Hello 1", font: nil)
         let textColor = label.textColor
         XCTAssertEqual(label.font, UIFont.preferredFont(forTextStyle: .body))
         XCTAssertEqual(label.textColor, textColor)
@@ -29,7 +29,7 @@ class DHDLabelTests: XCTestCase {
         XCTAssertEqual(label.numberOfLines, 0)
         XCTAssertEqual(label.adjustsFontForContentSizeCategory, true)
     }
-    
+
     func testTextInit() {
         let label = DHDLabel("Hello 2")
         let textColor = label.textColor

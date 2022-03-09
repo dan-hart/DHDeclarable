@@ -1,6 +1,6 @@
 //
 //  UIStackView+Recursive.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -63,7 +63,7 @@ public extension UIStackView {
 
         return identifiers
     }
-    
+
     /// Recursively search arranged subviews and any stack views arranged subviews for the given type and
     /// - Parameter type: the given type
     /// - Returns: an array of the subviews of the given type
@@ -84,11 +84,12 @@ public extension UIStackView {
         }
         return subviewsOfType
     }
-    
+
+    /// Recursively describe this stack and it's subviews
     var hierarchy: String {
         hierarchy(description: "\(UIStackView.self)")
     }
-    
+
     /// Recursively describe this stack and it's subviews
     /// - Returns: a string of the description
     func hierarchy(description: String, level: Int = 0, stackIndex: Int = 0) -> String {
@@ -108,17 +109,21 @@ public extension UIStackView {
                 description += "\t\(stackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
                 continue
             }
+            if let asStackView = arrangedSubview.asStack {
+                description += "\t\(asStackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
+                continue
+            }
             if let scrollable = arrangedSubview as? DHDScrollView {
                 description += "\t\(scrollable.stack.hierarchy(description: "\(DHDScrollView.self)", level: level + 1, stackIndex: index))"
                 continue
             }
 
-            if let _ = type(of: arrangedSubview) as? DHDHierarchyDescribable.Type {
-                let stringDescription = (arrangedSubview as? DHDHierarchyDescribable)?.hierarchyDescription ?? ""
+            if (type(of: arrangedSubview) as? DHDStringRepresentable.Type) != nil {
+                let stringDescription = (arrangedSubview as? DHDStringRepresentable)?.stringRepresentation ?? ""
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(stringDescription.inQuotes)"
                 continue
             }
-            
+
             if let identifier = arrangedSubview.accessibilityIdentifier {
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(identifier.inQuotes)"
                 continue

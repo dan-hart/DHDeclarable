@@ -1,6 +1,6 @@
 //
 //  DHDView.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
+// MARK: - DHDView
 open class DHDView: UIView {
+    /// A view that hugs the horizontal and vertical axis
     public static var spacer: DHDView {
         DHDView().declaredWith { view in
             view.setContentHuggingPriority(.required, for: .horizontal)
@@ -16,7 +18,8 @@ open class DHDView: UIView {
             view.accessibilityIdentifier = DHDIdentifier.spacer
         }
     }
-    
+
+    /// A view that creates a gray horizontal line
     public static var divider: DHDView {
         DHDView().declaredWith { view in
             view.addDivider(at: .top, color: .gray)
@@ -25,8 +28,13 @@ open class DHDView: UIView {
     }
 }
 
-extension DHDView: DHDHierarchyDescribable {
-    public var hierarchyDescription: String {
-        "\(DHDView.self)"
+// MARK: - DHDStringRepresentable
+extension DHDView: DHDStringRepresentable {
+    public var stringRepresentation: String {
+        if let identifier = accessibilityIdentifier {
+            return identifier
+        } else {
+            return description
+        }
     }
 }

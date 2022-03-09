@@ -1,6 +1,6 @@
 //
 //  DHDScrollView.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -8,23 +8,21 @@
 import Foundation
 import UIKit
 
+// MARK: - DHDScrollView
 /// Vertically scrolling view that uses a stack view to handle subviews
 open class DHDScrollView: UIView {
-    // MARK: - Properties
-    private var lastContentOffset: CGFloat = 0
-    public var viewsDidBecomeVisible: (([UIView]) -> Void)?
-
+    // MARK: - Lifecycle
     // MARK: - Initialization
+
     public init(fromSuper superView: UIView) {
         super.init(frame: superView.frame)
         scrollView.delegate = self
     }
 
-    @available(*, unavailable)
-    public required init(coder: NSCoder) {
+    @available(*, unavailable) public required init(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// Create this view with a predetermined array of views
     /// - Parameters:
     ///   - superView: the superview to render this view in
@@ -53,7 +51,11 @@ open class DHDScrollView: UIView {
         stack.forEach(array, style: style, convertToView: convertToView)
     }
 
+    // MARK: - Public
+    public var viewsDidBecomeVisible: (([UIView]) -> Void)?
+
     // MARK: - Properties
+
     public var scrollView = UIScrollView(frame: CGRect.zero).declaredWith { instance in
         instance.translatesAutoresizingMaskIntoConstraints = false
         instance.layoutMargins = .zero
@@ -64,9 +66,6 @@ open class DHDScrollView: UIView {
         instance.axis = .vertical // ScrollableView is designed only to scroll on a vertical axis
     }
 
-    private var didSetupConstraints = false
-
-    // MARK: - Lifecycle
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
 
@@ -80,6 +79,7 @@ open class DHDScrollView: UIView {
     }
 
     // MARK: - Methods
+
     override public func updateConstraints() {
         super.updateConstraints()
 
@@ -108,8 +108,15 @@ open class DHDScrollView: UIView {
         stack.layoutMargins = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         stack.isLayoutMarginsRelativeArrangement = true
     }
+
+    // MARK: - Private
+    // MARK: - Properties
+
+    private var lastContentOffset: CGFloat = 0
+    private var didSetupConstraints = false
 }
 
+// MARK: - UIScrollViewDelegate
 extension DHDScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         lastContentOffset = scrollView.contentOffset.y
@@ -137,17 +144,29 @@ extension DHDScrollView: UIScrollViewDelegate {
 }
 
 // MARK: - Convenience Extensions
+
 public extension DHDScrollView {
+    /// Set the margin of this scroll view
+    /// - Parameters:
+    ///   - verticalMargin: CGFloat of the vertical margin
+    ///   - horizontalMargin: CGFloat of the horizontal margin
+    /// - Returns: this scroll view
     @discardableResult func setMargin(verticalMargin: CGFloat, horizontalMargin: CGFloat) -> Self {
         setLayoutMargins(verticalMargin: verticalMargin, horizontalMargin: horizontalMargin)
         return self
     }
 
+    /// Set the `.distribution` property of the inner stack view
+    /// - Parameter distribution: the stack view distribution
+    /// - Returns: this scroll view
     @discardableResult func distributed(_ distribution: UIStackView.Distribution) -> Self {
         stack.distribution = distribution
         return self
     }
 
+    /// Set the `.spacing` property of the inner stack view
+    /// - Parameter spacing: the stack view spacing
+    /// - Returns: this scroll view
     @discardableResult func spacing(_ spacing: CGFloat) -> Self {
         stack.spacing = spacing
         return self

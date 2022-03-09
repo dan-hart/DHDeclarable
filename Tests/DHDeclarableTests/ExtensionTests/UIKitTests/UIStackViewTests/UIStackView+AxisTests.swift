@@ -16,7 +16,7 @@ class UIStackView_AxisTests: XCTestCase {
         }
         XCTAssertEqual(verticalStack.axis, .vertical)
     }
-    
+
     func testAxisHorizontal() {
         let horizontalStack = UIStackView().declaredWith { stack in
             stack.axis = .horizontal

@@ -1,0 +1,63 @@
+# https://realm.github.io/SwiftLint/rule-directory.html
+
+opt_in_rules:
+- fatal_error_message
+- collection_alignment
+- empty_count
+- contains_over_filter_count
+- convenience_type
+- discarded_notification_center_observer
+- discouraged_assert
+- discouraged_object_literal
+- empty_collection_literal
+- empty_string
+- empty_xctest_method
+- file_name_no_space
+- function_default_parameter_at_end
+- ibinspectable_in_extension
+- identical_operands
+- implicitly_unwrapped_optional
+- missing_docs
+- modifier_order
+- multiline_arguments
+- multiline_parameters
+- orphaned_doc_comment
+- overridden_super_call # Very important to remember to call super.viewDidLoad() etc.
+- override_in_extension
+- redundant_nil_coalescing
+- redundant_type_annotation
+- strong_iboutlet
+- unneeded_parentheses_in_closure_argument
+- unused_import
+- yoda_condition
+
+# Configuration
+file_length:
+  warning: 500 # TODO: Update this to a smaller number
+  error: 1000 # TODO: Update this to a smaller number
+  
+nesting:
+  type_level: 3
+
+disabled_rules:
+- line_length
+- identifier_name # TODO: Look into min/max/exclusion configuration options
+- type_body_length
+- type_name
+- function_body_length
+- cyclomatic_complexity
+- large_tuple
+- function_parameter_count
+- statement_position
+- trailing_comma
+- unused_closure_parameter
+- closure_parameter_position
+- class_delegate_protocol
+- compiler_protocol_init
+- reduce_boolean
+
+excluded:
+- Tests
+
+# https://realm.github.io/SwiftLint/rule-directory.html
+

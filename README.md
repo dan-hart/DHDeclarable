@@ -8,7 +8,7 @@
  
 ```
 ## DHDeclarable
-[![dev](https://github.com/dan-hart/DHDeclarable/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/dan-hart/DHDeclarable/actions/workflows/test.yml)
+[![run tests](https://github.com/dan-hart/DHDeclarable/actions/workflows/test.yml/badge.svg)](https://github.com/dan-hart/DHDeclarable/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/dan-hart/DHDeclarable/branch/dev/graph/badge.svg?token=X0G7HAZ7S4)](https://codecov.io/gh/dan-hart/DHDeclarable)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 

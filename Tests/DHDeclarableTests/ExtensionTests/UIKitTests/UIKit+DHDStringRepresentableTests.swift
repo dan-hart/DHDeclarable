@@ -14,10 +14,21 @@ class UIKit_DHDStringRepresentableTests: XCTestCase {
         XCTAssertEqual(label.stringRepresentation, "Hello")
     }
     
+    func testLabelNilConformance() {
+        let label = DHDLabel()
+        XCTAssertEqual(label.stringRepresentation, "")
+    }
+    
     func testButtonConformance() {
         let button = UIButton().declaredWith { button in
             button.titleLabel?.text = "Button"
         }
         XCTAssertEqual(button.stringRepresentation, "Button")
+    }
+    
+    func testButtonNilConformance() {
+        let button = UIButton().declaredWith { button in
+        }
+        XCTAssertEqual(button.stringRepresentation, "")
     }
 }

@@ -10,12 +10,12 @@ import UIKit
 
 extension UILabel: DHDStringRepresentable {
     public var stringRepresentation: String {
-        text ?? description
+        text ?? ""
     }
 }
 
 extension UIButton: DHDStringRepresentable {
     public var stringRepresentation: String {
-        titleLabel?.text ?? description
+        titleLabel?.text ?? ""
     }
 }

@@ -171,4 +171,9 @@ public extension DHDScrollView {
         stack.spacing = spacing
         return self
     }
+
+    override func identified(_ value: String) -> Self {
+        stack.identified(value)
+        return self
+    }
 }

@@ -10,6 +10,34 @@ import XCTest
 
 class UIStackView_hierarchyTests: XCTestCase {
     // MARK: - Internal
+    func testHierarchyWithType() {
+        let stackHierarchy = DHDVStack { [
+            UIView(),
+        ] }.hierarchy
+        XCTAssertEqual(stackHierarchy, "\n[0] UIStackView [\n\t[0] UIView\n]")
+    }
+
+    func testHierarchyWithIdentifiers() {
+        let stackHierarchy = DHDVStack { [
+            UIView().identified("view"),
+        ] }.hierarchy
+        XCTAssertEqual(stackHierarchy, "\n[0] UIStackView [\n\t[0] UIView \"view\"\n]")
+    }
+
+    func testScrollViewHierarchy() {
+        let scrollViewHierarchy = DHDScrollView(fromSuper: UIView()) { [
+            DHDScrollView(fromSuper: UIView()) { [
+                DHDLabel("Hello"),
+            ] },
+        ] }.stack.hierarchy
+        XCTAssertEqual(scrollViewHierarchy, "\n[0] UIStackView [\t\n\t[0] DHDScrollView [\n\t\t[0] DHDLabel \"Hello\"\n\t]\n]")
+    }
+
+    func testEmptyHierarchy() {
+        let stackHierarchy = DHDVStack { [] }.hierarchy
+        XCTAssertEqual(stackHierarchy, "\n[0] Empty UIStackView")
+    }
+
     func testSimpleHierarchy() {
         let stack = DHDVStack(arrangedSubviews: [
             DHDLabel("Hello").identified("title"),

@@ -6,6 +6,7 @@
 //
 
 @testable import DHDeclarable
+import SwiftUI
 import XCTest
 
 @available(iOS 13, *) class PreviewTests: XCTestCase {

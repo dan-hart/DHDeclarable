@@ -7,16 +7,16 @@
 
 import Foundation
 
-@propertyWrapper
 /// A property wrapper that allows a variable to be lazy and re-initialize-on-demand.
 /// Example Usage:
-/// ```
+///
 /// @ResettableLazy({
 ///     return "Default Value"
 /// })
 /// var title: String
-/// ```
-public class ResettableLazy<T> {
+///
+/// See above example
+@propertyWrapper public class ResettableLazy<T> {
     var _cachedValue: T?
     var setter: () -> T
 
@@ -24,6 +24,8 @@ public class ResettableLazy<T> {
         self.setter = setter
     }
 
+    /// Value that is always non-nil
+    /// Calls the setter if it is nil
     public var wrappedValue: T {
         get {
             if _cachedValue == nil {

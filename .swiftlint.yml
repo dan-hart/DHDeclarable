@@ -51,12 +51,10 @@ disabled_rules:
 - statement_position
 - trailing_comma
 - unused_closure_parameter
-- weak_delegate
 - closure_parameter_position
 - class_delegate_protocol
 - compiler_protocol_init
 - reduce_boolean
-- todo
 
 excluded:
 - Tests

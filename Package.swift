@@ -11,7 +11,8 @@ let package = Package(
     products: [
         .library(
             name: "DHDeclarable",
-            targets: ["DHDeclarable"]),
+            targets: ["DHDeclarable"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,9 +23,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "DHDeclarable",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "DHDeclarableTests",
-            dependencies: ["DHDeclarable"]),
+            dependencies: ["DHDeclarable"]
+        ),
     ]
 )

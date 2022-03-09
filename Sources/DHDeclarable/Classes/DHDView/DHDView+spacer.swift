@@ -1,6 +1,6 @@
 //
 //  DHDView+spacer.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 public extension DHDView {
-    
     /// create a spacer of a specific size
     /// - Parameter height: .
     /// - Returns: the spacer

@@ -16,15 +16,14 @@ public extension UIViewController {
     private struct Preview: UIViewRepresentable {
         typealias UIViewType = UIView
         let viewController: UIViewController
-        
-        func makeUIView(context: Context) -> UIView {
+
+        func makeUIView(context _: Context) -> UIView {
             return viewController.view
         }
-        
-        func updateUIView(_ uiView: UIView, context: Context) {
-        }
+
+        func updateUIView(_: UIView, context _: Context) {}
     }
-    
+
     /// Example usage:
     /// ```
     /// // MARK: - Preview

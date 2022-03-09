@@ -1,6 +1,6 @@
 //
 //  UIStackView+Recursive.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -63,7 +63,7 @@ public extension UIStackView {
 
         return identifiers
     }
-    
+
     /// Recursively search arranged subviews and any stack views arranged subviews for the given type and
     /// - Parameter type: the given type
     /// - Returns: an array of the subviews of the given type
@@ -84,11 +84,11 @@ public extension UIStackView {
         }
         return subviewsOfType
     }
-    
+
     var hierarchy: String {
         hierarchy(description: "\(UIStackView.self)")
     }
-    
+
     /// Recursively describe this stack and it's subviews
     /// - Returns: a string of the description
     func hierarchy(description: String, level: Int = 0, stackIndex: Int = 0) -> String {
@@ -122,7 +122,7 @@ public extension UIStackView {
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(stringDescription.inQuotes)"
                 continue
             }
-            
+
             if let identifier = arrangedSubview.accessibilityIdentifier {
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(identifier.inQuotes)"
                 continue

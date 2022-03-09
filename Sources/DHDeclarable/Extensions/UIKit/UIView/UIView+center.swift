@@ -1,6 +1,6 @@
 //
 //  UIView+center.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/4/22.
 //
@@ -19,15 +19,15 @@ public extension UIView {
         NSLayoutConstraint.activate([
             centerXAnchor.constraint(equalTo: to.centerXAnchor),
             centerYAnchor.constraint(equalTo: to.centerYAnchor),
-            
+
             heightAnchor.constraint(greaterThanOrEqualToConstant: 0),
             widthAnchor.constraint(greaterThanOrEqualToConstant: 0),
-            
+
             heightAnchor.constraint(lessThanOrEqualToConstant: heightLessThanOrEqualToConstant),
             widthAnchor.constraint(lessThanOrEqualToConstant: widthLessThanOrEqualToConstant),
         ])
     }
-    
+
     /// Put this view in a UIHStack with a spacer before and after
     var centerHorizontally: DHDHStack {
         DHDHStack(distribution: .equalCentering).add(arrangedSubviews: [

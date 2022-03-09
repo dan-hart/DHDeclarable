@@ -1,6 +1,6 @@
 //
 //  UIView+pin.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/4/22.
 //
@@ -14,7 +14,7 @@ public extension UIView {
     func pin(to superView: UIView) {
         pin(to: superView, withVerticalPadding: 0, withHorizontalPadding: 0)
     }
-    
+
     /// Use constraints to pin this to a superview
     /// - Parameters:
     ///   - superView: .

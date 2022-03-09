@@ -1,6 +1,6 @@
 //
 //  DHDTwoLabelRowComponent.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/8/22.
 //
@@ -11,6 +11,7 @@ import UIKit
 /// Two labels hugging the leading and trailing edge of the view
 open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     // MARK: - Properties
+
     @ResettableLazy({
         "".asLabel
     })
@@ -30,7 +31,7 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     }
 
     // MARK: - Initialization
-    
+
     /// Create this view
     /// - Parameters:
     ///   - leadingText: the text to assign to the leading label
@@ -45,7 +46,7 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     }
 
     // MARK: - Methods
-    
+
     /// Remove all the subviews, and re-add both labels
     private func reloadView() {
         removeAllArrangedSubviews()

@@ -1,6 +1,6 @@
 //
 //  DHDScrollView.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -11,20 +11,22 @@ import UIKit
 /// Vertically scrolling view that uses a stack view to handle subviews
 open class DHDScrollView: UIView {
     // MARK: - Properties
+
     private var lastContentOffset: CGFloat = 0
     public var viewsDidBecomeVisible: (([UIView]) -> Void)?
 
     // MARK: - Initialization
+
     public init(fromSuper superView: UIView) {
         super.init(frame: superView.frame)
         scrollView.delegate = self
     }
 
     @available(*, unavailable)
-    public required init(coder: NSCoder) {
+    public required init(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// Create this view with a predetermined array of views
     /// - Parameters:
     ///   - superView: the superview to render this view in
@@ -54,6 +56,7 @@ open class DHDScrollView: UIView {
     }
 
     // MARK: - Properties
+
     public var scrollView = UIScrollView(frame: CGRect.zero).declaredWith { instance in
         instance.translatesAutoresizingMaskIntoConstraints = false
         instance.layoutMargins = .zero
@@ -67,6 +70,7 @@ open class DHDScrollView: UIView {
     private var didSetupConstraints = false
 
     // MARK: - Lifecycle
+
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
 
@@ -80,6 +84,7 @@ open class DHDScrollView: UIView {
     }
 
     // MARK: - Methods
+
     override public func updateConstraints() {
         super.updateConstraints()
 
@@ -137,8 +142,8 @@ extension DHDScrollView: UIScrollViewDelegate {
 }
 
 // MARK: - Convenience Extensions
+
 public extension DHDScrollView {
-    
     /// Set the margin of this scroll view
     /// - Parameters:
     ///   - verticalMargin: CGFloat of the vertical margin
@@ -148,7 +153,7 @@ public extension DHDScrollView {
         setLayoutMargins(verticalMargin: verticalMargin, horizontalMargin: horizontalMargin)
         return self
     }
-    
+
     /// Set the `.distribution` property of the inner stack view
     /// - Parameter distribution: the stack view distribution
     /// - Returns: this scroll view

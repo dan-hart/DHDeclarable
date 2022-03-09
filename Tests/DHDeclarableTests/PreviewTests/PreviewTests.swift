@@ -1,6 +1,6 @@
 //
 //  PreviewTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/8/22.
 //
@@ -14,7 +14,7 @@ class PreviewTests: XCTestCase {
         let uiViewPreview = UIView().toPreview()
         XCTAssertNotNil(uiViewPreview)
     }
-    
+
     func testUIViewControllerPreview() {
         let uiViewControllerPreview = UIViewController().toPreview()
         XCTAssertNotNil(uiViewControllerPreview)

@@ -1,6 +1,6 @@
 //
 //  UIView+Preview.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/8/22.
 //
@@ -16,15 +16,14 @@ public extension UIView {
     private struct Preview: UIViewRepresentable {
         typealias UIViewType = UIView
         let view: UIView
-        
-        func makeUIView(context: Context) -> UIView {
+
+        func makeUIView(context _: Context) -> UIView {
             return view
         }
-        
-        func updateUIView(_ uiView: UIView, context: Context) {
-        }
+
+        func updateUIView(_: UIView, context _: Context) {}
     }
-    
+
     /// Example usage:
     /// ```
     /// // MARK: - Preview

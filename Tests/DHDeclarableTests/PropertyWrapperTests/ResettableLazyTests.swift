@@ -1,6 +1,6 @@
 //
 //  ResettableLazyTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/8/22.
 //
@@ -10,21 +10,21 @@ import XCTest
 
 class ResettableLazyTests: XCTestCase {
     @ResettableLazy({
-        return "Hello"
+        "Hello"
     })
     var greeting: String?
-    
+
     @ResettableLazy({
-        return "Goodbye"
+        "Goodbye"
     })
     var farewell: String
-    
+
     func testResettableLazyOptional() {
         XCTAssertEqual(greeting, "Hello")
         greeting = nil
         XCTAssertEqual(greeting, "Hello")
     }
-    
+
     func testResettableLazyNonOptional() {
         XCTAssertEqual(farewell, "Goodbye")
         farewell = ""

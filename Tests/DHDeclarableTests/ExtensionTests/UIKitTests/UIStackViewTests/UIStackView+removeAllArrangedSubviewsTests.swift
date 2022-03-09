@@ -1,12 +1,12 @@
 //
 //  UIStackView+removeAllArrangedSubviewsTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/8/22.
 //
 
-import XCTest
 import DHDeclarable
+import XCTest
 
 class UIStackView_removeAllArrangedSubviewsTests: XCTestCase {
     func testRemoveAllArrangedSubviews() {

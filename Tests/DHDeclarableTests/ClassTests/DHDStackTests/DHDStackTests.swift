@@ -1,6 +1,6 @@
 //
 //  DHDStackTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -10,6 +10,7 @@ import XCTest
 
 class DHDStackTests: XCTestCase {
     // MARK: - DHDStack Tests
+
     func testDHDStackInit() {
         let stack = DHDStack()
         XCTAssertEqual(stack.axis, .horizontal)
@@ -18,14 +19,14 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(stack.alignment, .fill)
         XCTAssertEqual(stack.tag, 0)
     }
-    
+
     func testDHDStackConvenienceInit() {
-        let stack = DHDStack {[
+        let stack = DHDStack { [
             DHDLabel("1"),
             DHDLabel("2"),
             nil,
             DHDLabel("3"),
-        ]}
+        ] }
         XCTAssertEqual(stack.arrangedSubviews.count, 3)
         XCTAssertEqual(stack.axis, .horizontal)
         XCTAssertEqual(stack.distribution, .fill)
@@ -33,7 +34,7 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(stack.alignment, .fill)
         XCTAssertEqual(stack.tag, 0)
     }
-    
+
     func testDHDStackSetup() {
         let stack = DHDStack()
         stack.setup(distribution: .equalCentering, spacing: 2, alignment: .leading, tag: 2)
@@ -43,8 +44,9 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(stack.alignment, .leading)
         XCTAssertEqual(stack.tag, 2)
     }
-    
+
     // MARK: - DHDHStack Tests
+
     func testDHDHStackInit() {
         let hStack = DHDHStack()
         XCTAssertEqual(hStack.axis, .horizontal)
@@ -53,7 +55,7 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(hStack.alignment, .fill)
         XCTAssertEqual(hStack.tag, 0)
     }
-    
+
     func testDHDHStackConvenienceInit() {
         let hStack = DHDHStack(distribution: .equalCentering, spacing: 2, alignment: .leading, tag: 2)
         XCTAssertEqual(hStack.axis, .horizontal)
@@ -62,8 +64,9 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(hStack.alignment, .leading)
         XCTAssertEqual(hStack.tag, 2)
     }
-    
+
     // MARK: - DHDVStack Tests
+
     func testDHDVStackInit() {
         let vStack = DHDVStack()
         XCTAssertEqual(vStack.axis, .vertical)
@@ -72,7 +75,7 @@ class DHDStackTests: XCTestCase {
         XCTAssertEqual(vStack.alignment, .fill)
         XCTAssertEqual(vStack.tag, 0)
     }
-    
+
     func testDHDVStackConvenienceInit() {
         let vStack = DHDVStack(distribution: .equalCentering, spacing: 2, alignment: .leading, tag: 2)
         XCTAssertEqual(vStack.axis, .vertical)

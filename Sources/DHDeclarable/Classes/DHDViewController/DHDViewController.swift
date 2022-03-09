@@ -5,19 +5,19 @@ import UIKit
 
 open class DHDViewController: UIViewController, DHDViewControlling {
     // MARK: - Properties
-    
+
     /// Make sure to tag the root of `.body` with this value
     public let viewTag = Int.random(in: Int.min ... Int.max)
 
     /// Override this property to set
     open var verticalPadding: CGFloat { 0 }
-    
+
     /// Override this property to set
     open var horizontalPadding: CGFloat { 0 }
-    
+
     /// Override this property to set
     open var body: UIView
-    
+
     /// Override this property to set
     open var titled: String? { nil }
 
@@ -39,18 +39,20 @@ open class DHDViewController: UIViewController, DHDViewControlling {
     }
 
     // MARK: - Initialization
+
     public init() {
         body = UIView()
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
-    required public init?(coder: NSCoder) {
+    public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Methods
-    public override func loadView() {
+
+    override public func loadView() {
         // Purposefully not calling super
         // when programmatically creating this view
         // super.loadView()
@@ -86,12 +88,13 @@ open class DHDViewController: UIViewController, DHDViewControlling {
 
         return bodyView
     }
-    
+
     // MARK: - Color
+
     var systemBackground: UIColor {
         DHDViewController.systemBackground(from: traitCollection)
     }
-    
+
     /// Sets the the background color to the system background
     /// for iOS 12 and lower,  manually set to white or black based on light/dark mode.
     static func systemBackground(from traitCollection: UITraitCollection) -> UIColor {
@@ -108,6 +111,7 @@ open class DHDViewController: UIViewController, DHDViewControlling {
     }
 
     // MARK: - Lifecycle
+
     override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 

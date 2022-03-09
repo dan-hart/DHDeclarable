@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - DHDeclarable for Objects
+
 public protocol ObjectDHDeclarable: AnyObject {
     associatedtype T
 
@@ -15,7 +16,7 @@ public protocol ObjectDHDeclarable: AnyObject {
     /// - Parameter then: A then `self` as the argument.
     /// - Returns: Simply returns the instance after called the `then`.
     @discardableResult func declaredWith(_ then: (_ instance: T) -> Void) -> T
-    
+
     @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: T) -> Void) -> T
 
     /// Provides a then to configure instance inline based on a boolean test
@@ -32,7 +33,7 @@ public extension ObjectDHDeclarable {
     }
 
     @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: Self) -> Void) -> Self {
-        return self.declaredIf(value, then, otherwise: nil)
+        return declaredIf(value, then, otherwise: nil)
     }
 
     @discardableResult func declaredIf(_ value: Bool, _ then: (_ instance: Self) -> Void, otherwise: ((_ instance: Self) -> Void)?) -> Self {
@@ -47,9 +48,10 @@ public extension ObjectDHDeclarable {
 }
 
 /// Conforms all objects to `DHDeclarable`
-extension NSObject: ObjectDHDeclarable { }
+extension NSObject: ObjectDHDeclarable {}
 
 // MARK: - DHDeclarable for Values
+
 public protocol DHDeclarable {
     associatedtype T
 
@@ -69,9 +71,9 @@ public extension DHDeclarable {
     }
 
     @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void) -> T {
-        return self.declaredIf(&copy, value, then, otherwise: nil)
+        return declaredIf(&copy, value, then, otherwise: nil)
     }
-    
+
     @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void, otherwise: ((_ instance: inout T) -> Void)?) -> T {
         if value {
             then(&copy)

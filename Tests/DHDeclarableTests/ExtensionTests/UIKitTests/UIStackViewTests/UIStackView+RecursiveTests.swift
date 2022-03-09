@@ -1,6 +1,6 @@
 //
 //  UIStackView+RecursiveTests.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -18,11 +18,11 @@ class UIStackView_RecursiveTests: XCTestCase {
         ])
         let arrangedSubviews = stack.arrangedSubviews(includingStackViews: false)
         XCTAssertEqual(arrangedSubviews.count, 2)
-        
+
         let arrangedSubviewsIncludingStacks = stack.arrangedSubviews(includingStackViews: true)
         XCTAssertEqual(arrangedSubviewsIncludingStacks.count, 4)
     }
-    
+
     func testRecursiveIdentifiers() {
         let stack = DHDVStack(arrangedSubviews: [
             DHDLabel("Hello").identified("title"),
@@ -30,7 +30,7 @@ class UIStackView_RecursiveTests: XCTestCase {
                 DHDLabel("It is Monday").identified("subtitle"),
             ]).identified("substack"),
         ]).identified("main stack")
-        
+
         // With Stack Views
         let identifiers = stack.identifiers(includingStackViews: true)
         XCTAssertEqual(identifiers.count, 4)
@@ -41,7 +41,7 @@ class UIStackView_RecursiveTests: XCTestCase {
             "subtitle",
         ]
         XCTAssertEqual(identifiers, expectedIdentifiers)
-        
+
         // Without stack views
         let idsWithoutStackViews = stack.identifiers(includingStackViews: false)
         XCTAssertEqual(idsWithoutStackViews.count, 2)
@@ -51,7 +51,7 @@ class UIStackView_RecursiveTests: XCTestCase {
         ]
         XCTAssertEqual(idsWithoutStackViews, expectedIDsWithoutStackViews)
     }
-    
+
     func testFind() {
         let stack = DHDVStack(arrangedSubviews: [
             DHDLabel("Title"),

@@ -1,6 +1,6 @@
 //
 //  DHDHStack.swift
-//  
+//
 //
 //  Created by Dan Hart on 3/7/22.
 //
@@ -10,7 +10,7 @@ import UIKit
 
 /// Horizontal stack view
 open class DHDHStack: DHDStack {
-    public override func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
+    override public func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
         super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
 
         axis = .horizontal

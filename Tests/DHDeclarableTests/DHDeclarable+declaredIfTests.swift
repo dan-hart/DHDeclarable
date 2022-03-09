@@ -30,62 +30,46 @@ class DHDeclarable_declaredIfTests: XCTestCase {
     }
 
     func testDeclaredIfFalse() {
-        let stack = UIStackView().declaredWith { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Test Label"
-            })
-        }
-        .declaredIf(false) { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Conditional is false, label is not added"
-            })
-        }
+        for boolean in [true, false] {
+            let stack = UIStackView().declaredWith { instance in
+                instance.addArrangedSubview(DHDLabel().declaredWith { instance in
+                    instance.text = "Test Label"
+                })
+            }
+            .declaredIf(boolean) { instance in
+                instance.addArrangedSubview(DHDLabel().declaredWith { instance in
+                    instance.text = "Conditional Label"
+                })
+            }
 
-        XCTAssertEqual(stack.arrangedSubviews.count, 1)
-        XCTAssertEqual((stack.arrangedSubviews.first as? UILabel)?.text, "Test Label")
+            XCTAssertEqual(stack.arrangedSubviews.count, boolean ? 2 : 1)
+            XCTAssertEqual(stack.arrangedSubview(at: 0)?.asLabel?.text, "Test Label")
+            XCTAssertEqual(stack.arrangedSubview(at: 1)?.asLabel?.text, boolean ? "Conditional Label" : nil)
+        }
     }
 
     // MARK: - Declared If Otherwise
 
     func testDeclaredIfOtherwiseTrue() {
-        let stack = UIStackView().declaredWith { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Test Label"
-            })
-        }
-        .declaredIf(true) { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Conditional is true, label is added"
-            })
-        } otherwise: { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Conditional is true, this label is NOT added"
-            })
-        }
+        for boolean in [true, false] {
+            let stack = UIStackView().declaredWith { instance in
+                instance.addArrangedSubview(DHDLabel().declaredWith { instance in
+                    instance.text = "Test Label"
+                })
+            }
+            .declaredIf(boolean) { instance in
+                instance.addArrangedSubview(DHDLabel().declaredWith { instance in
+                    instance.text = "Conditional is true"
+                })
+            } otherwise: { instance in
+                instance.addArrangedSubview(DHDLabel().declaredWith { instance in
+                    instance.text = "Conditional is false"
+                })
+            }
 
-        XCTAssertEqual(stack.arrangedSubviews.count, 2)
-        XCTAssertEqual((stack.arrangedSubviews.first as? UILabel)?.text, "Test Label")
-        XCTAssertEqual((stack.arrangedSubviews.last as? UILabel)?.text, "Conditional is true, label is added")
-    }
-
-    func testDeclaredIfOtherwiseFalse() {
-        let stack = UIStackView().declaredWith { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Test Label"
-            })
+            XCTAssertEqual(stack.arrangedSubviews.count, 2)
+            XCTAssertEqual(stack.arrangedSubview(at: 0)?.asLabel?.text, "Test Label")
+            XCTAssertEqual(stack.arrangedSubview(at: 1)?.asLabel?.text, boolean ? "Conditional is true" : "Conditional is false")
         }
-        .declaredIf(false) { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Conditional is false, this label is NOT added"
-            })
-        } otherwise: { instance in
-            instance.addArrangedSubview(UILabel().declaredWith { instance in
-                instance.text = "Conditional is false, this label is added"
-            })
-        }
-
-        XCTAssertEqual(stack.arrangedSubviews.count, 2)
-        XCTAssertEqual((stack.arrangedSubviews.first as? UILabel)?.text, "Test Label")
-        XCTAssertEqual((stack.arrangedSubviews.last as? UILabel)?.text, "Conditional is false, this label is added")
     }
 }

@@ -88,8 +88,6 @@ class UIStackView_hierarchyTests: XCTestCase {
                 .setMargin(verticalMargin: 10, horizontalMargin: 20)
                 .tagged(viewTag)
 
-                print(scrollView.stack.hierarchy)
-
                 return scrollView
             }
             set { super.body = newValue }

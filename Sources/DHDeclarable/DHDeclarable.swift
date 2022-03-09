@@ -102,7 +102,12 @@ public extension DHDeclarable {
     /// - Parameter then: A then `self` as the argument if the boolean test is true
     /// - Returns: the instance after called the `then`
     @discardableResult func declaredIf(_ copy: inout T, _ value: Bool, _ then: (_ instance: inout T) -> Void) -> T {
-        return declaredIf(&copy, value, then, otherwise: nil)
+        if value {
+            then(&copy)
+            return copy
+        } else {
+            return copy
+        }
     }
 
     /// Provides a then to configure instance inline based on a boolean test

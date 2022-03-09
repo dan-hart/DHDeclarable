@@ -61,6 +61,16 @@ class DHDeclarableViewControllerTests: XCTestCase {
         XCTAssertNotNil(color)
     }
 
+    func testSetBody() {
+        let pin = TestPinViewController()
+        pin.body = UIView().identified("pin")
+        XCTAssertEqual(pin.body.accessibilityIdentifier, nil) // Note that you shouldn't set the body
+
+        let center = TestCenterViewController()
+        center.body = UIView().identified("center")
+        XCTAssertEqual(center.body.accessibilityIdentifier, nil) // Note that you shouldn't set the body
+    }
+
     // MARK: - Private
     private class TestPinViewController: DHDViewController {
         override var titled: String? { "Test Pin" }

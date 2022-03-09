@@ -23,22 +23,39 @@ class UIStackView_RecursiveTests: XCTestCase {
         XCTAssertEqual(arrangedSubviewsIncludingStacks.count, 4)
     }
 
-    func testRecursiveIdentifiers() {
+    func testRecursiveArrangedSubviewsWithScrollView() {
         let stack = DHDVStack(arrangedSubviews: [
             DHDLabel("Hello").identified("title"),
-            DHDVStack(arrangedSubviews: [
+            DHDScrollView(fromSuper: UIView(), with: [
                 DHDLabel("It is Monday").identified("subtitle"),
-            ]).identified("substack"),
+            ]).identified("scrollview"),
+            DHDVStack { [] }.identified("emptyStack"),
+        ]).identified("main stack")
+        let arrangedSubviews = stack.arrangedSubviews(includingStackViews: false)
+        XCTAssertEqual(arrangedSubviews.count, 2)
+
+        let arrangedSubviewsIncludingStacks = stack.arrangedSubviews(includingStackViews: true)
+        XCTAssertEqual(arrangedSubviewsIncludingStacks.count, 5)
+    }
+
+    func testIdentifiers() {
+        let stack = DHDVStack(arrangedSubviews: [
+            DHDLabel("Hello").identified("title"),
+            DHDScrollView(fromSuper: UIView(), with: [
+                DHDLabel("It is Monday").identified("subtitle"),
+            ]).identified("scrollview"),
+            DHDVStack { [] }.identified("emptyStack"),
         ]).identified("main stack")
 
         // With Stack Views
         let identifiers = stack.identifiers(includingStackViews: true)
-        XCTAssertEqual(identifiers.count, 4)
+        XCTAssertEqual(identifiers.count, 5)
         let expectedIdentifiers = [
             "main stack",
             "title",
-            "substack",
+            "scrollview",
             "subtitle",
+            "emptyStack",
         ]
         XCTAssertEqual(identifiers, expectedIdentifiers)
 
@@ -56,6 +73,17 @@ class UIStackView_RecursiveTests: XCTestCase {
         let stack = DHDVStack(arrangedSubviews: [
             DHDLabel("Title"),
             DHDVStack(arrangedSubviews: [
+                DHDLabel("Substack"),
+            ]),
+        ])
+        let labels = stack.find(DHDLabel())
+        XCTAssertEqual(labels.count, 2)
+    }
+
+    func testFindScrollView() {
+        let stack = DHDVStack(arrangedSubviews: [
+            DHDLabel("Title"),
+            DHDScrollView(fromSuper: UIView(), with: [
                 DHDLabel("Substack"),
             ]),
         ])

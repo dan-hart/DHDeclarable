@@ -36,8 +36,8 @@ let package = Package(
     import PackageConfig
     let config = PackageConfiguration([
         "komondor": [
-            "pre-commit": ["xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'", "swift run swiftFormat ."],
-            "pre-push": "xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'"
+            "pre-commit": ["xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'", "swiftFormat ."],
+            "pre-push": "xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'",
         ],
     ])
 #endif

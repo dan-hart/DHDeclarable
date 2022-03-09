@@ -9,6 +9,4 @@ import Foundation
 import UIKit
 
 /// Protocol enforcing how to write a component in `DHDeclarable`
-public protocol DHDComponentable {
-    
-}
+public protocol DHDComponentable {}

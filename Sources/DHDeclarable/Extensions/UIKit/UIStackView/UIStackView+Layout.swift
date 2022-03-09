@@ -72,6 +72,11 @@ public extension UIStackView {
         }
     }
 
+    /// if a specific condition is true, then add the specified arranged subviews
+    /// - Parameters:
+    ///   - condition: the boolean condition to evaluate
+    ///   - arrangedSubviews: the views to add if the condition is true
+    /// - Returns: this stack view, with the arranged subviews if the condition is true
     @discardableResult func add(if condition: Bool, arrangedSubviews: [UIView?]) -> Self {
         if !condition {
             return self

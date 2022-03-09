@@ -33,8 +33,10 @@ import Foundation
             return _cachedValue! // It's safe to force-unwrap here due to the nil check
         }
         // The setter is not used in this class but
-        // will be used outside of this class,
+        // will be used outside of this class
+        // swiftlint:disable unused_setter_value
         set { _cachedValue = nil }
+        // swiftlint:enable unused_setter_value
     }
 
     // MARK: - Internal

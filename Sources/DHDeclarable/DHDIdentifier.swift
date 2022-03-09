@@ -7,7 +7,11 @@
 
 import Foundation
 
+/// Keep track of static values in this enumeration
 public enum DHDIdentifier {
+    /// `DHDView` Spacer identifier
     public static let spacer = "DHDSpacer"
+
+    /// `DHDView` Divider identifier
     public static let divider = "DHDDivider"
 }

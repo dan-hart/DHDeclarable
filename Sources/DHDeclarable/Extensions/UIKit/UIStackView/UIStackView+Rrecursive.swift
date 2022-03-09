@@ -85,6 +85,7 @@ public extension UIStackView {
         return subviewsOfType
     }
 
+    /// Recursively describe this stack and it's subviews
     var hierarchy: String {
         hierarchy(description: "\(UIStackView.self)")
     }
@@ -117,7 +118,7 @@ public extension UIStackView {
                 continue
             }
 
-            if let _ = type(of: arrangedSubview) as? DHDStringRepresentable.Type {
+            if (type(of: arrangedSubview) as? DHDStringRepresentable.Type) != nil {
                 let stringDescription = (arrangedSubview as? DHDStringRepresentable)?.stringRepresentation ?? ""
                 description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(stringDescription.inQuotes)"
                 continue

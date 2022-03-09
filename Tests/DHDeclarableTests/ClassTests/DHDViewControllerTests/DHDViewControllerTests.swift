@@ -10,6 +10,7 @@ import UIKit
 import XCTest
 
 class DHDeclarableViewControllerTests: XCTestCase {
+    // MARK: - Internal
     // MARK: - Initial Values
 
     func testViewTag() {
@@ -40,6 +41,27 @@ class DHDeclarableViewControllerTests: XCTestCase {
         XCTAssertNil(viewController.titled)
     }
 
+    func testPinReloadView() {
+        let viewController = TestPinViewController()
+        viewController.reloadView()
+        XCTAssertEqual(viewController.title, "Test Pin")
+        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Pinned Label")
+    }
+
+    func testCenterReloadView() {
+        let viewController = TestCenterViewController()
+        viewController.reloadView()
+        XCTAssertEqual(viewController.title, "Test Center")
+        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Centered Label")
+    }
+
+    func testSystemBackground() {
+        let viewController = DHDViewController()
+        let color = viewController.systemBackground
+        XCTAssertNotNil(color)
+    }
+
+    // MARK: - Private
     private class TestPinViewController: DHDViewController {
         override var titled: String? { "Test Pin" }
 
@@ -52,13 +74,6 @@ class DHDeclarableViewControllerTests: XCTestCase {
             }
             set { super.body = newValue }
         }
-    }
-
-    func testPinReloadView() {
-        let viewController = TestPinViewController()
-        viewController.reloadView()
-        XCTAssertEqual(viewController.title, "Test Pin")
-        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Pinned Label")
     }
 
     private class TestCenterViewController: DHDViewController {
@@ -74,18 +89,5 @@ class DHDeclarableViewControllerTests: XCTestCase {
             }
             set { super.body = newValue }
         }
-    }
-
-    func testCenterReloadView() {
-        let viewController = TestCenterViewController()
-        viewController.reloadView()
-        XCTAssertEqual(viewController.title, "Test Center")
-        XCTAssertEqual((viewController.body as? UILabel)?.text, "Test Centered Label")
-    }
-
-    func testSystemBackground() {
-        let viewController = DHDViewController()
-        let color = viewController.systemBackground
-        XCTAssertNotNil(color)
     }
 }

@@ -17,13 +17,12 @@ import Foundation
 ///
 /// See above example
 @propertyWrapper public class ResettableLazy<T> {
-    var _cachedValue: T?
-    var setter: () -> T
-
+    // MARK: - Lifecycle
     init(_ setter: @escaping () -> T) {
         self.setter = setter
     }
 
+    // MARK: - Public
     /// Value that is always non-nil
     /// Calls the setter if it is nil
     public var wrappedValue: T {
@@ -37,4 +36,8 @@ import Foundation
         // will be used outside of this class,
         set { _cachedValue = nil }
     }
+
+    // MARK: - Internal
+    var _cachedValue: T?
+    var setter: () -> T
 }

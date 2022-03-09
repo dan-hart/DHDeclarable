@@ -74,7 +74,9 @@ public extension UILabel {
     /// set the line spacing of this label
     @discardableResult func lineSpacing(_ lineSpacing: CGFloat) -> Self {
         declaredWith { _ in
-            guard let textString = text else { return }
+            guard let textString = text else {
+                return
+            }
 
             let attributedString = NSMutableAttributedString(string: textString)
 

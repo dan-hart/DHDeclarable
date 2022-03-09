@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
+// MARK: - UILabel + DHDStringRepresentable
 extension UILabel: DHDStringRepresentable {
     public var stringRepresentation: String {
         text ?? ""
     }
 }
 
+// MARK: - UIButton + DHDStringRepresentable
 extension UIButton: DHDStringRepresentable {
     public var stringRepresentation: String {
         titleLabel?.text ?? ""

@@ -33,7 +33,8 @@ public extension UIStackView {
         switch style {
         case .innerOuter:
             addArrangedSubview(DHDView.divider)
-        case .inner, .none:
+        case .inner,
+             .none:
             break
         }
 

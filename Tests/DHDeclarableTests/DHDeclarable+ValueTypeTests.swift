@@ -8,11 +8,13 @@
 @testable import DHDeclarable
 import XCTest
 
+// MARK: - Pet
 private struct Pet: DHDeclarable, Equatable {
     var name: String
     var species: String?
 }
 
+// MARK: - DHDeclarable_ValueTypeTests
 class DHDeclarable_ValueTypeTests: XCTestCase {
     // MARK: - Declared With
 

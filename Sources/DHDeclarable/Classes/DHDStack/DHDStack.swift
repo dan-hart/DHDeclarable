@@ -10,6 +10,7 @@ import UIKit
 
 /// A DHDeclarable wrapper for `UIStackView`
 open class DHDStack: UIStackView {
+    // MARK: - Lifecycle
     override public init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -25,11 +26,11 @@ open class DHDStack: UIStackView {
         add(arrangedSubviews: byAddingArrangedSubviews())
     }
 
-    @available(*, unavailable)
-    public required init(coder _: NSCoder) {
+    @available(*, unavailable) public required init(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Public
     public func setup(distribution: Distribution = .fill, spacing: CGFloat = 0, alignment: Alignment? = nil, tag: Int? = nil) {
         self.distribution = distribution
         self.spacing = spacing

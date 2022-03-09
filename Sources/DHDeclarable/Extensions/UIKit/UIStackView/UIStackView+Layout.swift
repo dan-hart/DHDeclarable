@@ -64,14 +64,18 @@ public extension UIStackView {
     @discardableResult func add(arrangedSubviews: [UIView?]) -> Self {
         declaredWith { stack in
             for subview in arrangedSubviews {
-                guard let view = subview else { continue }
+                guard let view = subview else {
+                    continue
+                }
                 stack.addArrangedSubview(view)
             }
         }
     }
 
     @discardableResult func add(if condition: Bool, arrangedSubviews: [UIView?]) -> Self {
-        if !condition { return self }
+        if !condition {
+            return self
+        }
 
         return add(arrangedSubviews: arrangedSubviews)
     }

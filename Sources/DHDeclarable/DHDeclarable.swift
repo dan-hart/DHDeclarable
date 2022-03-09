@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - DHDeclarable for Objects
-
+// MARK: - ObjectDHDeclarable
 public protocol ObjectDHDeclarable: AnyObject {
     associatedtype T
 
@@ -47,11 +46,11 @@ public extension ObjectDHDeclarable {
     }
 }
 
+// MARK: - NSObject + ObjectDHDeclarable
 /// Conforms all objects to `DHDeclarable`
 extension NSObject: ObjectDHDeclarable {}
 
-// MARK: - DHDeclarable for Values
-
+// MARK: - DHDeclarable
 public protocol DHDeclarable {
     associatedtype T
 

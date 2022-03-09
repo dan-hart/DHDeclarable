@@ -8,8 +8,7 @@
 @testable import DHDeclarable
 import XCTest
 
-@available(iOS 13, *)
-class PreviewTests: XCTestCase {
+@available(iOS 13, *) class PreviewTests: XCTestCase {
     func testUIViewPreview() {
         let uiViewPreview = UIView().toPreview()
         XCTAssertNotNil(uiViewPreview)

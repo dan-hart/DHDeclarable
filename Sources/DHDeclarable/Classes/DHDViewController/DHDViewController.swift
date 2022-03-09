@@ -4,19 +4,27 @@ import Foundation
 import UIKit
 
 open class DHDViewController: UIViewController, DHDViewControlling {
-    // MARK: - Properties
+    // MARK: - Lifecycle
+    // MARK: - Initialization
 
-    /// Make sure to tag the root of `.body` with this value
-    public let viewTag = Int.random(in: Int.min ... Int.max)
+    public init() {
+        body = UIView()
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable) public required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Open
+    /// Override this property to set
+    open var body: UIView
 
     /// Override this property to set
     open var verticalPadding: CGFloat { 0 }
 
     /// Override this property to set
     open var horizontalPadding: CGFloat { 0 }
-
-    /// Override this property to set
-    open var body: UIView
 
     /// Override this property to set
     open var titled: String? { nil }
@@ -28,27 +36,11 @@ open class DHDViewController: UIViewController, DHDViewControlling {
     /// use this sparingly, as we would like to move towards dark mode
     open var backgroundColor: UIColor? { nil }
 
-    /// Given the overridable background color, determine
-    /// what it should be (default to system background)
-    private var background: UIColor? {
-        if #available(iOS 13.0, *) {
-            return backgroundColor == nil ? .systemBackground : backgroundColor
-        } else {
-            return backgroundColor == nil ? .white : backgroundColor
-        }
-    }
+    // MARK: - Public
+    // MARK: - Properties
 
-    // MARK: - Initialization
-
-    public init() {
-        body = UIView()
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    public required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    /// Make sure to tag the root of `.body` with this value
+    public let viewTag = Int.random(in: Int.min ... Int.max)
 
     // MARK: - Methods
 
@@ -89,6 +81,13 @@ open class DHDViewController: UIViewController, DHDViewControlling {
         return bodyView
     }
 
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        reloadView()
+    }
+
+    // MARK: - Internal
     // MARK: - Color
 
     var systemBackground: UIColor {
@@ -110,11 +109,14 @@ open class DHDViewController: UIViewController, DHDViewControlling {
         }
     }
 
-    // MARK: - Lifecycle
-
-    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        reloadView()
+    // MARK: - Private
+    /// Given the overridable background color, determine
+    /// what it should be (default to system background)
+    private var background: UIColor? {
+        if #available(iOS 13.0, *) {
+            return backgroundColor == nil ? .systemBackground : backgroundColor
+        } else {
+            return backgroundColor == nil ? .white : backgroundColor
+        }
     }
 }

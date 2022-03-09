@@ -8,13 +8,10 @@
 import Foundation
 import UIKit
 
+// MARK: - DHDScrollView
 /// Vertically scrolling view that uses a stack view to handle subviews
 open class DHDScrollView: UIView {
-    // MARK: - Properties
-
-    private var lastContentOffset: CGFloat = 0
-    public var viewsDidBecomeVisible: (([UIView]) -> Void)?
-
+    // MARK: - Lifecycle
     // MARK: - Initialization
 
     public init(fromSuper superView: UIView) {
@@ -22,8 +19,7 @@ open class DHDScrollView: UIView {
         scrollView.delegate = self
     }
 
-    @available(*, unavailable)
-    public required init(coder _: NSCoder) {
+    @available(*, unavailable) public required init(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -55,6 +51,9 @@ open class DHDScrollView: UIView {
         stack.forEach(array, style: style, convertToView: convertToView)
     }
 
+    // MARK: - Public
+    public var viewsDidBecomeVisible: (([UIView]) -> Void)?
+
     // MARK: - Properties
 
     public var scrollView = UIScrollView(frame: CGRect.zero).declaredWith { instance in
@@ -66,10 +65,6 @@ open class DHDScrollView: UIView {
         instance.translatesAutoresizingMaskIntoConstraints = false
         instance.axis = .vertical // ScrollableView is designed only to scroll on a vertical axis
     }
-
-    private var didSetupConstraints = false
-
-    // MARK: - Lifecycle
 
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
@@ -113,8 +108,15 @@ open class DHDScrollView: UIView {
         stack.layoutMargins = UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
         stack.isLayoutMarginsRelativeArrangement = true
     }
+
+    // MARK: - Private
+    // MARK: - Properties
+
+    private var lastContentOffset: CGFloat = 0
+    private var didSetupConstraints = false
 }
 
+// MARK: - UIScrollViewDelegate
 extension DHDScrollView: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         lastContentOffset = scrollView.contentOffset.y

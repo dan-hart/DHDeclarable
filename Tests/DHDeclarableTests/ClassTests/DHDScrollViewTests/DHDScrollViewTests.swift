@@ -9,6 +9,7 @@
 import XCTest
 
 class DHDScrollViewTests: XCTestCase {
+    // MARK: - Internal
     func testInit() {
         let viewController = UIViewController()
         let items = [
@@ -33,26 +34,6 @@ class DHDScrollViewTests: XCTestCase {
         ] }
         XCTAssertNotNil(scrollView)
         XCTAssertEqual(scrollView.stack.arrangedSubviews.count, 3)
-    }
-
-    private class TestViewController: DHDViewController {
-        override var titled: String? { "Test" }
-
-        let items = [
-            "1",
-            "2",
-            "3",
-        ]
-
-        override var body: UIView {
-            get {
-                DHDScrollView(fromSuper: view, forEach: items, style: .none) { item in
-                    DHDLabel(item)
-                }
-                .tagged(viewTag)
-            }
-            set { super.body = newValue }
-        }
     }
 
     func testWithDHDViewController() {
@@ -83,5 +64,26 @@ class DHDScrollViewTests: XCTestCase {
 
         XCTAssertEqual(scrollView.stack.distribution, .fill)
         XCTAssertEqual(scrollView.stack.spacing, 20)
+    }
+
+    // MARK: - Private
+    private class TestViewController: DHDViewController {
+        let items = [
+            "1",
+            "2",
+            "3",
+        ]
+
+        override var titled: String? { "Test" }
+
+        override var body: UIView {
+            get {
+                DHDScrollView(fromSuper: view, forEach: items, style: .none) { item in
+                    DHDLabel(item)
+                }
+                .tagged(viewTag)
+            }
+            set { super.body = newValue }
+        }
     }
 }

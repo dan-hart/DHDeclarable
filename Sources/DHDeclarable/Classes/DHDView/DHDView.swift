@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - DHDView
 open class DHDView: UIView {
     /// A view that hugs the horizontal and vertical axis
     public static var spacer: DHDView {
@@ -27,6 +28,7 @@ open class DHDView: UIView {
     }
 }
 
+// MARK: - DHDStringRepresentable
 extension DHDView: DHDStringRepresentable {
     public var stringRepresentation: String {
         if let identifier = accessibilityIdentifier {

@@ -57,19 +57,17 @@ class UILabel_StyleTests: XCTestCase {
             .alignedRight
 
         var didAssertAttribute = false
-        label.attributedText?.enumerateAttributes(
-            in: NSRange(location: 0,
-                        length: label.attributedText?.length ?? 0),
-            options: .longestEffectiveRangeNotRequired,
-            using: { attributeDictionary, _, _ in
-                for attribute in attributeDictionary where attribute.key == .paragraphStyle {
-                    let paragraphStyle = attribute.value as? NSMutableParagraphStyle
-                    XCTAssertEqual(paragraphStyle?.lineSpacing, 20)
-                    XCTAssertEqual(paragraphStyle?.alignment, .right)
-                    didAssertAttribute = true
-                }
-            }
-        )
+        label.attributedText?.enumerateAttributes(in: NSRange(location: 0,
+                                                              length: label.attributedText?.length ?? 0),
+                                                  options: .longestEffectiveRangeNotRequired,
+                                                  using: { attributeDictionary, _, _ in
+                                                      for attribute in attributeDictionary where attribute.key == .paragraphStyle {
+                                                          let paragraphStyle = attribute.value as? NSMutableParagraphStyle
+                                                          XCTAssertEqual(paragraphStyle?.lineSpacing, 20)
+                                                          XCTAssertEqual(paragraphStyle?.alignment, .right)
+                                                          didAssertAttribute = true
+                                                      }
+                                                  })
         XCTAssertTrue(didAssertAttribute)
     }
 

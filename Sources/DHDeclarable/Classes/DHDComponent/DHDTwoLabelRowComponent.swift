@@ -10,6 +10,23 @@ import UIKit
 
 /// Two labels hugging the leading and trailing edge of the view
 open class DHDTwoLabelRowComponent: DHDStackViewComponent {
+    // MARK: - Lifecycle
+    // MARK: - Initialization
+
+    /// Create this view
+    /// - Parameters:
+    ///   - leadingText: the text to assign to the leading label
+    ///   - trailingText: the text to assign to the trailing label
+    public convenience init(leadingText: String, trailingText: String) {
+        self.init()
+
+        leadingLabel.text = leadingText
+        trailingLabel.text = trailingText
+
+        reloadView()
+    }
+
+    // MARK: - Public
     // MARK: - Properties
 
     @ResettableLazy({
@@ -30,21 +47,7 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
         }
     }
 
-    // MARK: - Initialization
-
-    /// Create this view
-    /// - Parameters:
-    ///   - leadingText: the text to assign to the leading label
-    ///   - trailingText: the text to assign to the trailing label
-    public convenience init(leadingText: String, trailingText: String) {
-        self.init()
-
-        leadingLabel.text = leadingText
-        trailingLabel.text = trailingText
-
-        reloadView()
-    }
-
+    // MARK: - Private
     // MARK: - Methods
 
     /// Remove all the subviews, and re-add both labels

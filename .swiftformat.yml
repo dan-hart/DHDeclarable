@@ -7,12 +7,26 @@
 --wraparguments after-first
 --wrapparameters after-first
 --wrapcollections before-first
---funcattributes prev-line
---typeattributes prev-line
+--funcattributes same-line
+--typeattributes same-line
+--groupedextension MARK: - %c
+--categorymark MARK: - %c
+--lineaftermarks false
 
 # opt-in
 --enable \
-    modifierorder
+    modifierorder, \
+    acronyms, \
+    andOperator, \
+    blankLinesBetweenImports, \
+    blockComments, \
+    isEmpty, \
+    markTypes, \
+    organizeDeclarations, \
+    sortedSwitchCases, \
+    wrapConditionalBodies, \
+    wrapEnumCases, \
+    wrapSwitchCases
 
 # rules
 --disable \

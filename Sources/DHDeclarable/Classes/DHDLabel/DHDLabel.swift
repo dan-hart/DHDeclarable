@@ -15,8 +15,7 @@ open class DHDLabel: UILabel {
                             alignment: NSTextAlignment?,
                             text: String?,
                             lineLimit: Int?,
-                            adjustsFontForContentSizeCategory: Bool?)
-    {
+                            adjustsFontForContentSizeCategory: Bool?) {
         self.init()
 
         if let font = font {
@@ -42,8 +41,7 @@ open class DHDLabel: UILabel {
     ///   - font: the `UIFont` of the label
     ///   - text: a string of text
     public convenience init(font: UIFont? = UIFont.preferredFont(forTextStyle: .body),
-                            _ text: String?)
-    {
+                            _ text: String?) {
         self.init(font: font,
                   textColor: nil,
                   alignment: .left,

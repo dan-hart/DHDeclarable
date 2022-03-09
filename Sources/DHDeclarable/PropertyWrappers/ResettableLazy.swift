@@ -35,9 +35,4 @@ public class ResettableLazy<T> {
         // will be used outside of this class,
         set { _cachedValue = nil }
     }
-
-    // MARK: - Methods
-    public func reset() {
-        _cachedValue = nil
-    }
 }

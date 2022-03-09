@@ -1,0 +1,26 @@
+# See: https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+
+--swiftversion 5.0
+
+# format options
+--indent 4
+--wraparguments after-first
+--wrapparameters after-first
+--wrapcollections before-first
+--funcattributes prev-line
+--typeattributes prev-line
+
+# opt-in
+--enable \
+    modifierorder
+
+# rules
+--disable \
+    blankLinesAroundMark, \
+    emptyBraces, \
+    linebreakAtEndOfFile, \
+    unusedArguments, \
+    wrapMultilineStatementBraces
+    
+# See: https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+

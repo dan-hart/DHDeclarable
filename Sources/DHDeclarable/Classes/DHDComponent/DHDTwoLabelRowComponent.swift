@@ -11,6 +11,7 @@ import UIKit
 /// Two labels hugging the leading and trailing edge of the view
 open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     // MARK: - Properties
+
     @ResettableLazy({
         "".asLabel
     })

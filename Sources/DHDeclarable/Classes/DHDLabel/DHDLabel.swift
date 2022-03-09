@@ -10,6 +10,17 @@ import UIKit
 
 /// Connivence object for `UILabel`
 open class DHDLabel: UILabel {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public convenience init(font: UIFont?,
                             textColor: UIColor?,
                             alignment: NSTextAlignment?,

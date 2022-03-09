@@ -39,5 +39,5 @@ let package = Package(
             "pre-commit": ["xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'", "swiftFormat ."],
             "pre-push": "xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'",
         ],
-    ])
+    ]).write()
 #endif

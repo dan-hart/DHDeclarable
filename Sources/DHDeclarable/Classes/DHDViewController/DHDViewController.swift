@@ -5,14 +5,23 @@ import UIKit
 
 open class DHDViewController: UIViewController, DHDViewControlling {
     // MARK: - Properties
+    
+    /// Make sure to tag the root of `.body` with this value
     public let viewTag = Int.random(in: Int.min ... Int.max)
 
+    /// Override this property to set
     open var verticalPadding: CGFloat { 0 }
+    
+    /// Override this property to set
     open var horizontalPadding: CGFloat { 0 }
-
+    
+    /// Override this property to set
     open var body: UIView
+    
+    /// Override this property to set
     open var titled: String? { nil }
 
+    /// Override this property to set
     open var renderingMode: DHDViewControllerContentRenderingMode { .pin }
 
     /// Override this property to use a custom background color

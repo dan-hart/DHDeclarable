@@ -35,7 +35,11 @@ open class DHDLabel: UILabel {
         }
         self.adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory ?? false
     }
-
+    
+    /// Create a `DHDLabel` with a font and some text
+    /// - Parameters:
+    ///   - font: the `UIFont` of the label
+    ///   - text: a string of text
     public convenience init(font: UIFont? = UIFont.preferredFont(forTextStyle: .body),
                      _ text: String?) {
         self.init(font: font,
@@ -45,7 +49,9 @@ open class DHDLabel: UILabel {
                   lineLimit: 0,
                   adjustsFontForContentSizeCategory: true)
     }
-
+    
+    /// Create a `DHDLabel` with some text
+    /// - Parameter text: a string of text
     public convenience init(_ text: String?) {
         self.init(font: UIFont.preferredFont(forTextStyle: .body),
                   textColor: nil,

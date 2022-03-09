@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 open class DHDView: UIView {
+    
+    /// A view that hugs the horizontal and vertical axis
     public static var spacer: DHDView {
         DHDView().declaredWith { view in
             view.setContentHuggingPriority(.required, for: .horizontal)
@@ -17,6 +19,7 @@ open class DHDView: UIView {
         }
     }
     
+    /// A view that creates a gray horizontal line
     public static var divider: DHDView {
         DHDView().declaredWith { view in
             view.addDivider(at: .top, color: .gray)

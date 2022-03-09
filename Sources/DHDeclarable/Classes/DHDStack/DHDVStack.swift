@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// Vertical stack view
 open class DHDVStack: DHDStack {
     override init(frame: CGRect) {
         super.init(frame: frame)

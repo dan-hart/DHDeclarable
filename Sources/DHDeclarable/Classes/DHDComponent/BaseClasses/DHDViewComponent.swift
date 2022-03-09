@@ -8,5 +8,6 @@
 import Foundation
 import UIKit
 
+/// Subclass this class to created a view-based component
 open class DHDViewComponent: UIView, DHDComponentable {
 }

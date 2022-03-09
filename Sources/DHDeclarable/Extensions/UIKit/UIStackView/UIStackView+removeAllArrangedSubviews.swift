@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public extension UIStackView {
+    /// Clear all arranged subviews from this stack
     func removeAllArrangedSubviews() {
         let removedSubviews = arrangedSubviews.reduce([]) { allSubviews, subview -> [UIView] in
             self.removeArrangedSubview(subview)

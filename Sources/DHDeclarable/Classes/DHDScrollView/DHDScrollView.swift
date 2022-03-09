@@ -138,16 +138,28 @@ extension DHDScrollView: UIScrollViewDelegate {
 
 // MARK: - Convenience Extensions
 public extension DHDScrollView {
+    
+    /// Set the margin of this scroll view
+    /// - Parameters:
+    ///   - verticalMargin: CGFloat of the vertical margin
+    ///   - horizontalMargin: CGFloat of the horizontal margin
+    /// - Returns: this scroll view
     @discardableResult func setMargin(verticalMargin: CGFloat, horizontalMargin: CGFloat) -> Self {
         setLayoutMargins(verticalMargin: verticalMargin, horizontalMargin: horizontalMargin)
         return self
     }
-
+    
+    /// Set the `.distribution` property of the inner stack view
+    /// - Parameter distribution: the stack view distribution
+    /// - Returns: this scroll view
     @discardableResult func distributed(_ distribution: UIStackView.Distribution) -> Self {
         stack.distribution = distribution
         return self
     }
 
+    /// Set the `.spacing` property of the inner stack view
+    /// - Parameter spacing: the stack view spacing
+    /// - Returns: this scroll view
     @discardableResult func spacing(_ spacing: CGFloat) -> Self {
         stack.spacing = spacing
         return self

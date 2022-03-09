@@ -8,6 +8,7 @@
 import Foundation
 
 public extension String {
+    /// Convert this string to a `DHDLabel`
     var asLabel: DHDLabel {
         DHDLabel(self)
     }

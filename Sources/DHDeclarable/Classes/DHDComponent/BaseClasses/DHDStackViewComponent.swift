@@ -8,5 +8,6 @@
 import Foundation
 import UIKit
 
+/// Subclass this class to write a Stack View-based component
 open class DHDStackViewComponent: UIStackView, DHDComponentable {
 }

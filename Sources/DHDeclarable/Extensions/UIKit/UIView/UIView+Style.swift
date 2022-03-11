@@ -21,7 +21,7 @@ public extension UIView {
     /// Set the `.accessibilityIdentifier` of this view
     /// - Parameter value: the `String` value to set
     /// - Returns: this view
-    @discardableResult func identified(_ value: String) -> Self {
+    @objc @discardableResult func identified(_ value: String) -> Self {
         declaredWith { view in
             view.accessibilityIdentifier = value
         }

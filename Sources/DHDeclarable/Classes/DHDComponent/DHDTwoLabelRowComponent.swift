@@ -20,8 +20,8 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     public convenience init(leadingText: String, trailingText: String) {
         self.init()
 
-        leadingLabel.text = leadingText
-        trailingLabel.text = trailingText
+        leadingLabel = DHDLabel(leadingText)
+        trailingLabel = DHDLabel(trailingText)
 
         reloadView()
     }
@@ -29,19 +29,13 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
     // MARK: - Public
     // MARK: - Properties
 
-    @ResettableLazy({
-        "".asLabel
-    })
-    public var leadingLabel: DHDLabel {
+    public var leadingLabel: DHDLabel? {
         didSet {
             reloadView()
         }
     }
 
-    @ResettableLazy({
-        "".asLabel
-    })
-    public var trailingLabel: DHDLabel {
+    public var trailingLabel: DHDLabel? {
         didSet {
             reloadView()
         }
@@ -60,7 +54,7 @@ open class DHDTwoLabelRowComponent: DHDStackViewComponent {
 
         add(arrangedSubviews: [
             leadingLabel,
-            trailingLabel.alignment(.right),
+            trailingLabel?.alignment(.right),
         ])
     }
 }

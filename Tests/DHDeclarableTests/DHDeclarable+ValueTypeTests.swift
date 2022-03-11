@@ -36,32 +36,38 @@ class DHDeclarable_ValueTypeTests: XCTestCase {
     }
 
     func testValueTypeDeclaredIfFalse() {
-        var dog = Pet(name: "Dolly")
-        dog.declaredIf(&dog, false) { instance in // Need to use &dog for value types
-            instance.species = "Cat" // Nope
+        for boolean in [true, false] {
+            var dog = Pet(name: "Dolly")
+            dog.declaredIf(&dog, boolean) { instance in // Need to use &dog for value types
+                instance.species = "Cat"
+            }
+            XCTAssertEqual(dog.species, boolean ? "Cat" : nil)
         }
-        XCTAssertEqual(dog.species, nil)
     }
 
     // MARK: - Declared If Otherwise
 
     func testValueTypeDeclaredIfOtherwiseTrue() {
-        var dog = Pet(name: "Dolly")
-        dog.declaredIf(&dog, true) { instance in // Need to use &dog for value types
-            instance.species = "Dog"
-        } otherwise: { instance in
-            instance.species = "Cat" // Nope
+        for boolean in [true, false] {
+            var dog = Pet(name: "Dolly")
+            dog.declaredIf(&dog, boolean) { instance in // Need to use &dog for value types
+                instance.species = "Dog"
+            } otherwise: { instance in
+                instance.species = "Cat" // Nope
+            }
+            XCTAssertEqual(dog.species, boolean ? "Dog" : "Cat")
         }
-        XCTAssertEqual(dog.species, "Dog")
     }
 
     func testValueTypeDeclaredIfOtherwiseFalse() {
-        var cat = Pet(name: "Nacho")
-        cat.declaredIf(&cat, false) { instance in // Need to use &dog for value types
-            instance.species = "Dog"
-        } otherwise: { instance in
-            instance.species = "Cat"
+        for boolean in [true, false] {
+            var cat = Pet(name: "Nacho")
+            cat.declaredIf(&cat, boolean) { instance in // Need to use &dog for value types
+                instance.species = "Dog"
+            } otherwise: { instance in
+                instance.species = "Cat"
+            }
+            XCTAssertEqual(cat.species, boolean ? "Dog" : "Cat")
         }
-        XCTAssertEqual(cat.species, "Cat")
     }
 }

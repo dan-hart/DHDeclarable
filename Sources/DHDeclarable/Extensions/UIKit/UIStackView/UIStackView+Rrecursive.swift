@@ -105,22 +105,17 @@ public extension UIStackView {
         var description = "\n\(tab)[\(stackIndex)] \(description) ["
         for (index, arrangedSubview) in arrangedSubviews.enumerated() {
             // If there is a stack view or scrollable view contained within, search it, then continue until base case is reached
-            if let stackView = arrangedSubview as? UIStackView {
-                description += "\t\(stackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
-                continue
-            }
             if let asStackView = arrangedSubview.asStack {
                 description += "\t\(asStackView.hierarchy(description: "\(type(of: arrangedSubview))", level: level + 1, stackIndex: index))"
                 continue
             }
-            if let scrollable = arrangedSubview as? DHDScrollView {
+            if let scrollable = arrangedSubview.asScrollView {
                 description += "\t\(scrollable.stack.hierarchy(description: "\(DHDScrollView.self)", level: level + 1, stackIndex: index))"
                 continue
             }
 
-            if (type(of: arrangedSubview) as? DHDStringRepresentable.Type) != nil {
-                let stringDescription = (arrangedSubview as? DHDStringRepresentable)?.stringRepresentation ?? ""
-                description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(stringDescription.inQuotes)"
+            if let representation = (arrangedSubview as? DHDStringRepresentable)?.stringRepresentation {
+                description += "\n\t\(tab)[\(index)] \(type(of: arrangedSubview)) \(representation.inQuotes)"
                 continue
             }
 

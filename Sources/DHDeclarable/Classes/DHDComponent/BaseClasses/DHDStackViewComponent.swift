@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-/// Subclass this class to write a Stack View-based component
-open class DHDStackViewComponent: UIStackView, DHDComponentable {}
+    /// Subclass this class to write a Stack View-based component
+    open class DHDStackViewComponent: UIStackView, DHDComponentable {}
+#endif

@@ -5,22 +5,24 @@
 //  Created by Dan Hart on 3/4/22.
 //
 
-@testable import DHDeclarable
-import UIKit
-import XCTest
+#if canImport(UIKit)
+    @testable import DHDeclarable
+    import UIKit
+    import XCTest
 
-class UIStackView_AxisTests: XCTestCase {
-    func testAxisVertical() {
-        let verticalStack = UIStackView().declaredWith { stack in
-            stack.axis = .vertical
+    class UIStackView_AxisTests: XCTestCase {
+        func testAxisVertical() {
+            let verticalStack = UIStackView().declaredWith { stack in
+                stack.axis = .vertical
+            }
+            XCTAssertEqual(verticalStack.axis, .vertical)
         }
-        XCTAssertEqual(verticalStack.axis, .vertical)
-    }
 
-    func testAxisHorizontal() {
-        let horizontalStack = UIStackView().declaredWith { stack in
-            stack.axis = .horizontal
+        func testAxisHorizontal() {
+            let horizontalStack = UIStackView().declaredWith { stack in
+                stack.axis = .horizontal
+            }
+            XCTAssertEqual(horizontalStack.axis, .horizontal)
         }
-        XCTAssertEqual(horizontalStack.axis, .horizontal)
     }
-}
+#endif

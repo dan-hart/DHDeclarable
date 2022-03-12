@@ -6,11 +6,13 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-public extension UIViewController {
-    /// Put this view controller in the `rootViewController` of a `UINavigationController` and return it
-    var inNavigationController: UINavigationController {
-        UINavigationController(rootViewController: self)
+    public extension UIViewController {
+        /// Put this view controller in the `rootViewController` of a `UINavigationController` and return it
+        var inNavigationController: UINavigationController {
+            UINavigationController(rootViewController: self)
+        }
     }
-}
+#endif

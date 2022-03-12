@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-public extension UIStackView {
-    /// Retrieve an arranged subview at the specified index
-    /// - Parameter index: the 0-based index of the arranged subview
-    /// - Returns: the optional view at the specified index.
-    func arrangedSubview(at index: Int) -> UIView? {
-        arrangedSubviews[optional: index]
+    public extension UIStackView {
+        /// Retrieve an arranged subview at the specified index
+        /// - Parameter index: the 0-based index of the arranged subview
+        /// - Returns: the optional view at the specified index.
+        func arrangedSubview(at index: Int) -> UIView? {
+            arrangedSubviews[optional: index]
+        }
     }
-}
+#endif

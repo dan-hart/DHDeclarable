@@ -6,18 +6,20 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-extension UIView {
-    @objc var asLabel: DHDLabel? {
-        self as? DHDLabel
-    }
+    extension UIView {
+        @objc var asLabel: DHDLabel? {
+            self as? DHDLabel
+        }
 
-    @objc var asStack: DHDStack? {
-        self as? DHDStack
-    }
+        @objc var asStack: DHDStack? {
+            self as? DHDStack
+        }
 
-    @objc var asScrollView: DHDScrollView? {
-        self as? DHDScrollView
+        @objc var asScrollView: DHDScrollView? {
+            self as? DHDScrollView
+        }
     }
-}
+#endif

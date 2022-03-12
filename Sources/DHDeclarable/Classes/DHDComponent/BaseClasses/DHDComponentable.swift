@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-/// Protocol enforcing how to write a component in `DHDeclarable`
-public protocol DHDComponentable {}
+    /// Protocol enforcing how to write a component in `DHDeclarable`
+    public protocol DHDComponentable {}
+#endif

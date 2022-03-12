@@ -6,23 +6,25 @@
 //
 
 @testable import DHDeclarable
-import UIKit
-import XCTest
+#if canImport(UIKit)
+    import UIKit
+    import XCTest
 
-class UIView_roundedTests: XCTestCase {
-    var testCornerRadiusValue: CGFloat = 8
+    class UIView_roundedTests: XCTestCase {
+        var testCornerRadiusValue: CGFloat = 8
 
-    func testCornerRadius() {
-        let view = UIView()
-        view.cornerRadius = testCornerRadiusValue
-        XCTAssertEqual(view.layer.cornerRadius, testCornerRadiusValue)
-        XCTAssertTrue(view.layer.masksToBounds)
+        func testCornerRadius() {
+            let view = UIView()
+            view.cornerRadius = testCornerRadiusValue
+            XCTAssertEqual(view.layer.cornerRadius, testCornerRadiusValue)
+            XCTAssertTrue(view.layer.masksToBounds)
+        }
+
+        func testRounded() {
+            let view = UIView()
+            XCTAssertEqual(view.layer.cornerRadius, 0)
+            XCTAssertNotNil(view.rounded(by: testCornerRadiusValue))
+            XCTAssertEqual(view.cornerRadius, testCornerRadiusValue)
+        }
     }
-
-    func testRounded() {
-        let view = UIView()
-        XCTAssertEqual(view.layer.cornerRadius, 0)
-        XCTAssertNotNil(view.rounded(by: testCornerRadiusValue))
-        XCTAssertEqual(view.cornerRadius, testCornerRadiusValue)
-    }
-}
+#endif

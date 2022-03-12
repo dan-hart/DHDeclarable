@@ -28,7 +28,7 @@ let package = Package(name: "DHDeclarable",
     import PackageConfig
     let config = PackageConfiguration([
         "komondor": [
-            "pre-commit": ["xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable-Package'", "swiftformat --config .swiftformat.yml .", "git add ."],
+            "pre-commit": ["xcodebuild test -destination 'name=iPhone 13' -scheme 'DHDeclarable'", "swiftformat --config .swiftformat.yml .", "git add ."],
         ],
     ]).write()
 #endif

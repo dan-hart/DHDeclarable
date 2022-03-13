@@ -22,7 +22,10 @@
 * No more assigning constraints in Interface Builder
 * One source of truth for your user interface code
 
-[Documentation](https://dan-hart.github.io/DHDeclarable/reference/)
+### Getting Started
+* [Introduction](https://dan-hart.github.io/DHDeclarable/)
+* [Examples](https://dan-hart.github.io/DHDeclarable/DHDeclarable-Examples.html)
+* [API Documentation](https://dan-hart.github.io/DHDeclarable/reference/)
 
 #### Available as a Swift Package: `https://github.com/dan-hart/DHDeclarable`
 

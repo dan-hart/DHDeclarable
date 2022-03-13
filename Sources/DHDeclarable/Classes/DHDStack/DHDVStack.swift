@@ -6,20 +6,25 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-/// Vertical stack view
-open class DHDVStack: DHDStack {
-    // MARK: - Lifecycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        axis = .vertical
+    /// Vertical stack view
+    /// **⚠️ warning**:
+    /// make sure to call `declaredWithVerticalAxis()` if using a parameterless constructor
+    open class DHDVStack: DHDStack {
+        override public func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
+            super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
+
+            axis = .vertical
+        }
+
+        /// Since the default axis of a `UIStackView` is `.horizontal` use this helper method to declare with a vertical axis.
+        /// - Returns: this vertical stack
+        public func declaredWithVerticalAxis() -> Self {
+            declaredWith { instance in
+                instance.axis = .vertical
+            }
+        }
     }
-
-    // MARK: - Public
-    override public func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
-        super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
-
-        axis = .vertical
-    }
-}
+#endif

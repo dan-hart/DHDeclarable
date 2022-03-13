@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-/// Subclass this class to created a view-based component
-open class DHDViewComponent: UIView, DHDComponentable {}
+    /// Subclass this class to created a view-based component
+    open class DHDViewComponent: UIView, DHDComponentable {}
+#endif

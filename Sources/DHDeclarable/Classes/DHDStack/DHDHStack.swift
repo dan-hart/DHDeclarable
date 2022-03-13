@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-/// Horizontal stack view
-open class DHDHStack: DHDStack {
-    override public func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
-        super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
+    /// Horizontal stack view
+    open class DHDHStack: DHDStack {
+        override public func setup(distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0, alignment: UIStackView.Alignment? = nil, tag: Int? = nil) {
+            super.setup(distribution: distribution, spacing: spacing, alignment: alignment, tag: tag)
 
-        axis = .horizontal
+            axis = .horizontal
+        }
     }
-}
+#endif

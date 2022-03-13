@@ -6,96 +6,98 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-public extension UILabel {
-    // MARK: - Properties
+    public extension UILabel {
+        // MARK: - Properties
 
-    /// Set `adjustsFontForContentSizeCategory` to true
-    var adjustableFontSize: UILabel {
-        declaredWith { label in
-            label.adjustsFontForContentSizeCategory = true
-        }
-    }
-
-    // MARK: - Styling
-
-    /// Set text alignment to right
-    var alignedRight: UILabel {
-        declaredWith { label in
-            label.textAlignment = .right
-        }
-    }
-
-    /// Set text alignment to left
-    var alignedLeft: UILabel {
-        declaredWith { label in
-            label.textAlignment = .left
-        }
-    }
-
-    /// set `numberOfLines` to 0
-    var multiline: UILabel {
-        declaredWith { label in
-            label.numberOfLines = 0
-        }
-    }
-
-    // MARK: - Methods
-
-    /// set the font of this label
-    @discardableResult func font(_ font: UIFont) -> Self {
-        declaredWith { label in
-            label.font = font
-        }
-    }
-
-    /// set the font of this label using text styles
-    @discardableResult func textStyle(_ style: UIFont.TextStyle) -> Self {
-        declaredWith { label in
-            label.font = .preferredFont(forTextStyle: style)
-        }
-    }
-
-    /// set the text color of this label
-    @discardableResult func textColor(_ color: UIColor) -> Self {
-        declaredWith { label in
-            label.textColor = color
-        }
-    }
-
-    /// set the text alignment of this label
-    @discardableResult func alignment(_ alignment: NSTextAlignment) -> Self {
-        declaredWith { label in
-            label.textAlignment = alignment
-        }
-    }
-
-    /// set the line spacing of this label
-    @discardableResult func lineSpacing(_ lineSpacing: CGFloat) -> Self {
-        declaredWith { _ in
-            guard let textString = text else {
-                return
+        /// Set `adjustsFontForContentSizeCategory` to true
+        var adjustableFontSize: UILabel {
+            declaredWith { label in
+                label.adjustsFontForContentSizeCategory = true
             }
+        }
 
-            let attributedString = NSMutableAttributedString(string: textString)
+        // MARK: - Styling
 
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = lineSpacing
-            paragraphStyle.alignment = self.textAlignment
+        /// Set text alignment to right
+        var alignedRight: UILabel {
+            declaredWith { label in
+                label.textAlignment = .right
+            }
+        }
 
-            attributedString.addAttribute(.paragraphStyle,
-                                          value: paragraphStyle,
-                                          range: NSRange(location: 0, length: attributedString.length))
+        /// Set text alignment to left
+        var alignedLeft: UILabel {
+            declaredWith { label in
+                label.textAlignment = .left
+            }
+        }
 
-            attributedText = attributedString
+        /// set `numberOfLines` to 0
+        var multiline: UILabel {
+            declaredWith { label in
+                label.numberOfLines = 0
+            }
+        }
+
+        // MARK: - Methods
+
+        /// set the font of this label
+        @discardableResult func font(_ font: UIFont) -> Self {
+            declaredWith { label in
+                label.font = font
+            }
+        }
+
+        /// set the font of this label using text styles
+        @discardableResult func textStyle(_ style: UIFont.TextStyle) -> Self {
+            declaredWith { label in
+                label.font = .preferredFont(forTextStyle: style)
+            }
+        }
+
+        /// set the text color of this label
+        @discardableResult func textColor(_ color: UIColor) -> Self {
+            declaredWith { label in
+                label.textColor = color
+            }
+        }
+
+        /// set the text alignment of this label
+        @discardableResult func alignment(_ alignment: NSTextAlignment) -> Self {
+            declaredWith { label in
+                label.textAlignment = alignment
+            }
+        }
+
+        /// set the line spacing of this label
+        @discardableResult func lineSpacing(_ lineSpacing: CGFloat) -> Self {
+            declaredWith { _ in
+                guard let textString = text else {
+                    return
+                }
+
+                let attributedString = NSMutableAttributedString(string: textString)
+
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = lineSpacing
+                paragraphStyle.alignment = self.textAlignment
+
+                attributedString.addAttribute(.paragraphStyle,
+                                              value: paragraphStyle,
+                                              range: NSRange(location: 0, length: attributedString.length))
+
+                attributedText = attributedString
+            }
+        }
+
+        /// set the text property of this label
+        @discardableResult func declaredWith(text: String?) -> Self {
+            declaredWith { label in
+                label.text = text
+            }
         }
     }
-
-    /// set the text property of this label
-    @discardableResult func declaredWith(text: String?) -> Self {
-        declaredWith { label in
-            label.text = text
-        }
-    }
-}
+#endif

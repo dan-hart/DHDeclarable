@@ -5,30 +5,42 @@
 //  Created by Dan Hart on 3/7/22.
 //
 
-@testable import DHDeclarable
-import XCTest
+#if canImport(UIKit)
+    @testable import DHDeclarable
+    import XCTest
 
-class UIKit_DHDStringRepresentableTests: XCTestCase {
-    func testLabelConformance() {
-        let label = DHDLabel("Hello")
-        XCTAssertEqual(label.stringRepresentation, "Hello")
-    }
-
-    func testLabelNilConformance() {
-        let label = DHDLabel()
-        XCTAssertEqual(label.stringRepresentation, "")
-    }
-
-    func testButtonConformance() {
-        let button = UIButton().declaredWith { button in
-            button.titleLabel?.text = "Button"
+    class UIKit_DHDStringRepresentableTests: XCTestCase {
+        func testViewConformance() {
+            let view = DHDView().identified("value")
+            XCTAssertEqual(view.stringRepresentation, "value")
         }
-        XCTAssertEqual(button.stringRepresentation, "Button")
-    }
 
-    func testButtonNilConformance() {
-        let button = UIButton().declaredWith { _ in
+        func testViewNilConformance() {
+            let view = DHDView()
+            XCTAssertEqual(view.stringRepresentation, "")
         }
-        XCTAssertEqual(button.stringRepresentation, "")
+
+        func testLabelConformance() {
+            let label = DHDLabel("Hello")
+            XCTAssertEqual(label.stringRepresentation, "Hello")
+        }
+
+        func testLabelNilConformance() {
+            let label = DHDLabel()
+            XCTAssertEqual(label.stringRepresentation, "")
+        }
+
+        func testButtonConformance() {
+            let button = UIButton().declaredWith { button in
+                button.titleLabel?.text = "Button"
+            }
+            XCTAssertEqual(button.stringRepresentation, "Button")
+        }
+
+        func testButtonNilConformance() {
+            let button = UIButton().declaredWith { _ in
+            }
+            XCTAssertEqual(button.stringRepresentation, "")
+        }
     }
-}
+#endif

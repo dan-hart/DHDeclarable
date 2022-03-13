@@ -6,16 +6,18 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-public extension DHDView {
-    /// create a horizontal line of a specified color
-    /// - Parameter color: UIColor
-    /// - Returns: the divider
-    static func divider(_ color: UIColor) -> DHDView {
-        DHDView().declaredWith { view in
-            view.addDivider(at: .top, color: color)
-            view.accessibilityIdentifier = DHDIdentifier.divider
+    public extension DHDView {
+        /// create a horizontal line of a specified color
+        /// - Parameter color: UIColor
+        /// - Returns: the divider
+        static func divider(_ color: UIColor) -> DHDView {
+            DHDView().declaredWith { view in
+                view.addDivider(at: .top, color: color)
+                view.accessibilityIdentifier = DHDIdentifier.divider
+            }
         }
     }
-}
+#endif

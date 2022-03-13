@@ -6,18 +6,20 @@
 //
 
 import Foundation
-import UIKit
+#if canImport(UIKit)
+    import UIKit
 
-// MARK: - UILabel + DHDStringRepresentable
-extension UILabel: DHDStringRepresentable {
-    public var stringRepresentation: String {
-        text ?? ""
+    // MARK: - UILabel + DHDStringRepresentable
+    extension UILabel: DHDStringRepresentable {
+        public var stringRepresentation: String {
+            text ?? ""
+        }
     }
-}
 
-// MARK: - UIButton + DHDStringRepresentable
-extension UIButton: DHDStringRepresentable {
-    public var stringRepresentation: String {
-        titleLabel?.text ?? ""
+    // MARK: - UIButton + DHDStringRepresentable
+    extension UIButton: DHDStringRepresentable {
+        public var stringRepresentation: String {
+            titleLabel?.text ?? ""
+        }
     }
-}
+#endif

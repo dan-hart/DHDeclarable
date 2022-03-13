@@ -25,6 +25,11 @@
             XCTAssertEqual(scrollView.stack.arrangedSubviews.count, 3)
         }
 
+        func testFailableInit() {
+            let nilScrollView = DHDScrollView(coder: NSCoder())
+            XCTAssertNil(nilScrollView)
+        }
+
         func testCompletionConvenienceInit() {
             let viewController = UIViewController()
             let scrollView = DHDScrollView(fromSuper: viewController.view) { [

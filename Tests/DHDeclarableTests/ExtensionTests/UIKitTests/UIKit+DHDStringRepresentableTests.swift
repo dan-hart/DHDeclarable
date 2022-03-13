@@ -10,6 +10,16 @@
     import XCTest
 
     class UIKit_DHDStringRepresentableTests: XCTestCase {
+        func testViewConformance() {
+            let view = DHDView().identified("value")
+            XCTAssertEqual(view.stringRepresentation, "value")
+        }
+
+        func testViewNilConformance() {
+            let view = DHDView()
+            XCTAssertEqual(view.stringRepresentation, "")
+        }
+
         func testLabelConformance() {
             let label = DHDLabel("Hello")
             XCTAssertEqual(label.stringRepresentation, "Hello")

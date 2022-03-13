@@ -14,6 +14,32 @@
         // MARK: - Internal
         // MARK: - Initial Values
 
+        func testInit() {
+            let nilViewController = DHDViewController(coder: NSCoder())
+            XCTAssertNil(nilViewController)
+        }
+
+        @available(iOS 13.0, *)  func testSystemBackgroundFromTraitCollection() {
+            let viewController = UIViewController()
+            let systemBackground = DHDViewController.systemBackground(from: viewController.traitCollection)
+            XCTAssertNotNil(systemBackground)
+            XCTAssertEqual(systemBackground, .systemBackground)
+        }
+
+        @available(iOS 13.0, *)  func testSystemBackgroundFromTraitCollectionLight() {
+            let viewController = UIViewController()
+            viewController.overrideUserInterfaceStyle = .light
+            let systemBackground = DHDViewController.systemBackground(from: viewController.traitCollection, useSystemBackgroundIfAvailable: false)
+            XCTAssertEqual(systemBackground, .white)
+        }
+
+        @available(iOS 13.0, *)  func testSystemBackgroundFromTraitCollectionDark() {
+            let viewController = UIViewController()
+            viewController.overrideUserInterfaceStyle = .dark
+            let systemBackground = DHDViewController.systemBackground(from: viewController.traitCollection, useSystemBackgroundIfAvailable: false)
+            XCTAssertEqual(systemBackground, .black)
+        }
+
         func testViewTag() {
             let viewController = DHDViewController()
             let viewTag = viewController.viewTag

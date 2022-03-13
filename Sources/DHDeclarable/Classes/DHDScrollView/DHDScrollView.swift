@@ -20,8 +20,8 @@ import Foundation
             scrollView.delegate = self
         }
 
-        @available(*, unavailable) public required init(coder _: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        public required init?(coder _: NSCoder) {
+            return nil
         }
 
         /// Create this view with a predetermined array of views

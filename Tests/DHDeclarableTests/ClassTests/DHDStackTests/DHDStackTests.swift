@@ -69,7 +69,7 @@
         // MARK: - DHDVStack Tests
 
         func testDHDVStackInit() {
-            let vStack = DHDVStack()
+            let vStack = DHDVStack().declaredWithVerticalAxis()
             XCTAssertEqual(vStack.axis, .vertical)
             XCTAssertEqual(vStack.distribution, .fill)
             XCTAssertEqual(vStack.spacing, 0)

@@ -35,7 +35,7 @@ import Foundation
             if let identifier = accessibilityIdentifier {
                 return identifier
             } else {
-                return description
+                return ""
             }
         }
     }

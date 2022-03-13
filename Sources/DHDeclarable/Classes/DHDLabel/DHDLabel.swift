@@ -34,7 +34,9 @@ import Foundation
             if let lines = lineLimit {
                 numberOfLines = lines
             }
-            self.adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory ?? false
+            if let adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory {
+                self.adjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory
+            }
         }
 
         /// Create a `DHDLabel` with a font and some text

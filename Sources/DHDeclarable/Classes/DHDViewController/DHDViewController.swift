@@ -13,8 +13,8 @@ import Foundation
             super.init(nibName: nil, bundle: nil)
         }
 
-        @available(*, unavailable) public required init?(coder _: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        public required init?(coder: NSCoder) {
+            return nil
         }
 
         // MARK: - Open
@@ -97,8 +97,8 @@ import Foundation
 
         /// Sets the the background color to the system background
         /// for iOS 12 and lower,  manually set to white or black based on light/dark mode.
-        static func systemBackground(from traitCollection: UITraitCollection) -> UIColor {
-            if #available(iOS 13, *) {
+        static func systemBackground(from traitCollection: UITraitCollection, useSystemBackgroundIfAvailable: Bool = true) -> UIColor {
+            if #available(iOS 13, *), useSystemBackgroundIfAvailable {
                 return .systemBackground
             } else {
                 // Manually set background with black/white
@@ -114,11 +114,7 @@ import Foundation
         /// Given the overridable background color, determine
         /// what it should be (default to system background)
         private var background: UIColor? {
-            if #available(iOS 13.0, *) {
-                return backgroundColor == nil ? .systemBackground : backgroundColor
-            } else {
-                return backgroundColor == nil ? .white : backgroundColor
-            }
+            backgroundColor == nil ? DHDViewController.systemBackground(from: traitCollection) : backgroundColor
         }
     }
 #endif

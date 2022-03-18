@@ -17,6 +17,24 @@
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fdan-hart%2FDHDeclarable)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdan-hart%2FDHDeclarable)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
+```Swift
+import DHDeclarable
+class ViewController: DHDViewController {
+    override var titled: String? { "DHDeclarable" }
+    override var renderingMode: DHDViewControllerContentRenderingMode { .center }
+    
+    override var body: UIView {
+        get {
+            DHDLabel("Hello, World!")
+                .tagged(viewTag)
+        }
+        set { super.body = newValue }
+    }
+}
+```
+
+<img src="https://user-images.githubusercontent.com/13913605/159046409-251ba885-fd6c-48af-a728-a49c85686ae4.JPG" height="500">
+
 ### Tired of Storyboards? Not ready for SwiftUI?
 * `DHDeclarable` adds declarative syntax to `UIKit`
 * No more assigning constraints in Interface Builder

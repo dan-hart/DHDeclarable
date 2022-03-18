@@ -15,6 +15,9 @@
 [![GitHub license](https://img.shields.io/github/license/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/issues)
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fdan-hart%2FDHDeclarable)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdan-hart%2FDHDeclarable)
+[![GitHub forks](https://img.shields.io/github/forks/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/network)
+[![GitHub stars](https://img.shields.io/github/stars/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/stargazers)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4e7c983f2dccaf66dfa4/maintainability)](https://codeclimate.com/github/dan-hart/DHDeclarable/maintainability)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
 ```Swift

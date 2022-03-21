@@ -18,6 +18,10 @@
 [![GitHub forks](https://img.shields.io/github/forks/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/network)
 [![GitHub stars](https://img.shields.io/github/stars/dan-hart/DHDeclarable)](https://github.com/dan-hart/DHDeclarable/stargazers)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4e7c983f2dccaf66dfa4/maintainability)](https://codeclimate.com/github/dan-hart/DHDeclarable/maintainability)
+![GitHub last commit](https://img.shields.io/github/last-commit/dan-hart/DHDeclarable)
+![Maintenance](https://img.shields.io/maintenance/yes/2022)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/dan-hart/DHDeclarable)
+![GitHub followers](https://img.shields.io/github/followers/dan-hart?style=social)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
 ```Swift

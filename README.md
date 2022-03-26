@@ -22,6 +22,7 @@
 ![Maintenance](https://img.shields.io/maintenance/yes/2022)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/dan-hart/DHDeclarable)
 ![GitHub followers](https://img.shields.io/github/followers/dan-hart?style=social)
+[![Donatecoins](http://donatecoins.org/btc/1HeMeMU2qUFDRZpRQMJ2v27Dw3h3gShJ5b.svg)](http://donatecoins.org/btc/1HeMeMU2qUFDRZpRQMJ2v27Dw3h3gShJ5b)
 ### 🌉 A bridge from `UIKit` to `SwiftUI`
 
 ```Swift

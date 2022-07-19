@@ -38,7 +38,7 @@ import Foundation
             case .bottom:
                 NSLayoutConstraint.activate([
                     view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom),
-                    view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left)
+                    view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left),
                     view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right),
                     view.heightAnchor.constraint(equalToConstant: weight)
                 ])

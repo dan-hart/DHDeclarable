@@ -28,28 +28,36 @@ import Foundation
 
             switch position {
             case .top:
-                view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
-                view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left).isActive = true
-                view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right).isActive = true
-                view.heightAnchor.constraint(equalToConstant: weight).isActive = true
-
+                NSLayoutConstraint.activate([
+                    view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top),
+                    view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left),
+                    view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right),
+                    view.heightAnchor.constraint(equalToConstant: weight)
+                ])
+                
             case .bottom:
-                view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom).isActive = true
-                view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left).isActive = true
-                view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right).isActive = true
-                view.heightAnchor.constraint(equalToConstant: weight).isActive = true
-
+                NSLayoutConstraint.activate([
+                    view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom),
+                    view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left)
+                    view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right),
+                    view.heightAnchor.constraint(equalToConstant: weight)
+                ])
+                
             case .left:
-                view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
-                view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom).isActive = true
-                view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left).isActive = true
-                view.widthAnchor.constraint(equalToConstant: weight).isActive = true
-
+                NSLayoutConstraint.activate([
+                    view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top),
+                    view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom),
+                    view.leftAnchor.constraint(equalTo: leftAnchor, constant: insets.left),
+                    view.widthAnchor.constraint(equalToConstant: weight)
+                ])
+                
             case .right:
-                view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
-                view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom).isActive = true
-                view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right).isActive = true
-                view.widthAnchor.constraint(equalToConstant: weight).isActive = true
+                NSLayoutConstraint.activate([
+                    view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top),
+                    view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom),
+                    view.rightAnchor.constraint(equalTo: rightAnchor, constant: -insets.right),
+                    view.widthAnchor.constraint(equalToConstant: weight)
+                ])
             }
 
             return view

@@ -17,13 +17,12 @@ import Foundation
         ///   - withHorizontalPadding: .
         func pin(to superView: UIView, withVerticalPadding: CGFloat = 0, withHorizontalPadding: CGFloat = 0) {
             translatesAutoresizingMaskIntoConstraints = false
-            topAnchor.constraint(equalTo: superView.topAnchor, constant: withVerticalPadding).isActive = true
-            leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: withHorizontalPadding)
-                .isActive = true
-            trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: withHorizontalPadding * -1)
-                .isActive = true
-            bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: withVerticalPadding * -1)
-                .isActive = true
+            NSLayoutConstraint.activate([
+                topAnchor.constraint(equalTo: superView.topAnchor, constant: withVerticalPadding),
+                leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: withHorizontalPadding),
+                trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: withHorizontalPadding * -1),
+                bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: withVerticalPadding * -1)
+            ])
         }
     }
 #endif

@@ -85,17 +85,19 @@ import Foundation
             super.updateConstraints()
 
             if !didSetupConstraints {
-                scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-                scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-                scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-                scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+                NSLayoutConstraint.activate([
+                    scrollView.topAnchor.constraint(equalTo: topAnchor),
+                    scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                    scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-                stack.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-                stack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-                stack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-                stack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+                    stack.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                    stack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                    stack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                    stack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
 
-                stack.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+                    stack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+                ])
 
                 didSetupConstraints = true
             }
